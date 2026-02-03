@@ -1,0 +1,70 @@
+body {
+    background-color: #f1debd;
+    font-family: "Noto Serif", serif;
+    color: white;
+    background-image: url("/public/assets/logo-name.jpeg");
+}
+
+.card-login {
+    background-color: #333e50;
+    max-width: 400px;
+    margin: auto;
+}
+
+.imagem-logo {
+    max-width: 140px;
+}
+
+.title-login {
+    color: #f1debd;
+}
+
+.input-login {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #f1debd;
+    background-color: #333e50;
+    color: white;
+}
+
+.input-login:active {
+    background-color: #333e50;
+    color: white;
+}
+
+.input-login:focus {
+    background-color: #333e50;
+    box-shadow: none;
+    border-bottom: 1px solid #f1debd;
+    color: white;
+}
+
+.input-login::placeholder {
+    color: white;
+    opacity: 60%;
+}
+
+.botao-login {
+    background-color: #d1d6da;
+    color: black;
+    width: 100%;
+    border: none;
+}
+
+.botao-login:hover {
+    background-color: #acb2b6;
+    color: black;
+}
+
+.botao-login:active {
+    background-color: #acb2b6 !important;
+    color: black !important;
+}
+
+.link-login {
+    color: white;
+}
+
+.link-login:hover {
+    color: #f1debd;
+}

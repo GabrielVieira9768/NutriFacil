@@ -1,0 +1,40 @@
+body {
+    background-color: #f1debd;
+    font-family: "Noto Serif", serif;
+}
+
+.titulo-dash {
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.titulo-posts {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.card-body {
+    background-color: #333e50;
+    color: white;
+    border-radius:  0 0 4px 4px;
+}
+
+.fixed-height-image {
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+}
+
+.botao-posts {
+    background-color: #d1d6da;
+    color: black;
+}
+
+.botao-posts:hover {
+    background-color: #acb2b6;
+    color: black;
+}
+
+.span-text {
+    margin-left: 2px;
+}

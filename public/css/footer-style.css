@@ -1,0 +1,23 @@
+footer {
+    background-color: #333e50 !important;
+    color: white;
+}
+
+footer section, footer .copy {
+    text-decoration: none;
+    color: white;
+    border-color: #f1debd;
+}
+
+.link-footer {
+    text-decoration: none;
+}
+
+.link-footer:hover {
+    text-decoration: underline;
+}
+
+footer .copy p {
+    margin: 0;
+    font-weight: 300;
+}

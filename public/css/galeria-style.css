@@ -1,0 +1,83 @@
+body {
+    background-color: #f1debd;
+    font-family: "Noto Serif", serif;
+}
+
+.input-pesquisa {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #333e50;
+    background-color: #f1debd;
+}
+
+.input-pesquisa:active {
+    background-color: #f1debd;
+}
+
+.input-pesquisa:focus {
+    background-color: #f1debd;
+    box-shadow: none;
+    border-bottom: 1px solid #333e50;
+}
+
+.search-botao {
+    background-color: #333e50;
+    fill: white;
+}
+
+.search-botao:hover {
+    background-color: #212b41;
+}
+
+.search-botao:active {
+    background-color: #212b41 !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.borda-post {
+    border: none;
+}
+
+.card-post {
+    transition: transform 0.3s ease;
+}
+
+.card-post:hover {
+    transform: scale(1.03);
+}
+
+.fixed-width-image {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+.card {
+    flex-direction: row;
+}
+
+.card-body {
+    flex-grow: 1;
+    background-color: #333e50;
+}
+
+.card-title, .card-text {
+    color: white !important;
+    text-align: left;
+    font-weight: 400;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
+.conteudo {
+    text-align: justify;
+    font-size: 14px;
+}

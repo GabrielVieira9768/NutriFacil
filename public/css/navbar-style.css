@@ -1,0 +1,22 @@
+.navbar {
+    background-color: #333e50;
+}
+
+.navbar-brand {
+    color: #f1debd;
+    font-weight: 600;
+}
+
+.navbar-brand:hover {
+    color: #f1debd;
+}
+
+.navbar-nav a {
+    color: white !important;
+    font-weight: 600;
+}
+
+.navbar-nav a:hover {
+    color: #f1debd !important;
+    text-decoration: underline;
+}

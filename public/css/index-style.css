@@ -1,0 +1,90 @@
+body {
+    background-color: #f1debd;
+    font-family: "Noto Serif", serif;
+}
+
+.imagem-principal {
+    max-width: 320px;
+    margin-right: 60px;
+}
+
+.slogan {
+    margin-left: 60px;
+    max-width: 520px;
+}
+
+.slogan h1 {
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.slogan p {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.secao-publicacoes {
+    background-color: #333e50;
+    padding: 28px 0;
+}
+
+.title-publicacoes {
+    color: #f1debd;
+    font-weight: 600;
+    font-size: 44px;
+}
+
+.card-post {
+    border: none;
+    width: 18rem;
+}
+
+.card-body {
+    flex-grow: 1;
+    background-color: #fefefe;
+}
+
+.card-title, .card-text {
+    text-align: left;
+}
+
+.fixed-height-image {
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+}
+
+.botao-index {
+    background-color: #333e50;
+    color: white;
+}
+
+.botao-index:hover {
+    background-color: #212b41;
+    color: white;
+}
+
+.botao-index:active {
+    background-color: #212b41 !important;
+    color: white !important;
+}
+
+.span-text {
+    margin-left: 2px;
+}
+
+.secao-sobre {
+    text-align: justify;
+}
+
+.texto-sobre {
+    max-width: 820px;
+    margin-right: 0px;
+}
+
+.titulo-sobre {
+    font-size: 44px;
+    color: #333e50;
+    font-weight: 600;
+}

@@ -1,0 +1,25 @@
+.sidebar-corpo {
+    background-color: #333e50;
+    color: white;
+}
+
+.span-text-sidebar {
+    color: white;
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+.span-text-sidebar:hover {
+    color: #f1debd;
+    text-decoration: underline;
+}
+
+.titulo-sidebar {
+    font-size: 18px !important; 
+    margin-left: 2px;
+    font-weight: 600;
+}
+
+.titulo-sidebar:hover {
+    color: #f1debd !important;
+}

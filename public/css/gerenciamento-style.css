@@ -1,0 +1,113 @@
+body {
+    background-color: #f1debd;
+    font-family: "Noto Serif", serif;
+}
+
+tr {
+    border-bottom: #333e50;
+}
+
+td {
+    background-color: #f1debd !important;
+    vertical-align: middle !important;
+}
+
+.titulo {
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.thead-tabela {
+    font-weight: 600;
+}
+
+.botao {
+    background-color: #333e50;
+    fill: white !important;
+}
+
+.botao:hover {
+    background-color: #212b41;
+}
+
+.botao:active {
+    background-color: #212b41 !important;
+}
+
+.input-pesquisa {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #333e50;
+    background-color: #f1debd;
+}
+
+.input-pesquisa:active {
+    background-color: #f1debd;
+}
+
+.input-pesquisa:focus {
+    background-color: #f1debd;
+    box-shadow: none;
+    border-bottom: 1px solid #333e50;
+}
+
+.search-botao {
+    background-color: #333e50;
+    fill: white;
+}
+
+.search-botao:hover {
+    background-color: #212b41;
+}
+
+.search-botao:active {
+    background-color: #212b41 !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.span-text {
+    color: white;
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+/* Modais */
+.modal-content {
+    background-color: #333e50;
+    color: white;
+}
+
+.botao-fechar:focus {
+    border: none !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #333e50;
+}
+
+.modal-botao {
+    background-color: #d1d6da;
+    color: black;
+}
+
+.modal-botao:hover {
+    background-color: #acb2b6;
+    color: black;
+}
+
+.modal-botao:active {
+    background-color: #acb2b6 !important;
+    border: none !important;
+    color: black !important;
+}
+
+.delete-conteudo {
+    font-size: 20px;
+}
