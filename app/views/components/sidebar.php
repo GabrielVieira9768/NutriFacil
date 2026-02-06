@@ -10,7 +10,7 @@
     <a class="navbar-brand d-flex align-items-center" href="/">
         <img src="/public/assets/logo.png" alt="Logo" width="36" height="28"
              class="d-inline-block align-text-top rounded" style="margin-right: 2px;">
-        <span class="titulo-sidebar">Game Over</span>
+        <span class="titulo-sidebar">NutriFácil</span>
     </a>
 
     <button type="button"

@@ -22,10 +22,10 @@
     <?php require('app/views/components/navbar.php'); ?>
 
     <div class="d-flex justify-content-center my-5 secao-principal text-center">
-        <img class="imagem-principal rounded" src="public/assets/logo-name.jpeg" alt="Logo da Game Over">
+        <img class="imagem-principal rounded" src="public/assets/logo-name.png" alt="Logo da NutriFácil">
         <div class="slogan d-flex align-items-center mb-5">
             <div>
-                <h1 class="titulo-principal">Game Over</h1>
+                <h1 class="titulo-principal">NutriFácil</h1>
                 <p>Onde cada jogo conta uma história única e emocionante. Descubra o seu próximo desafio!</p>
             </div>
         </div>

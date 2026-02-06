@@ -18,6 +18,22 @@
     margin-left: 6px;
     font-weight: 600;
     transition: color 0.2s ease;
+    position: relative;
+}
+
+.span-text-sidebar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #f1debd;
+    transition: width 0.2s ease;
+}
+
+.offcanvas-body a:hover .span-text-sidebar::after {
+    width: 100%;
 }
 
 .offcanvas-body a svg {
@@ -28,7 +44,6 @@
 .offcanvas-body a:hover svg {
     color: #f1debd;
     fill: #f1debd;
-    text-decoration: underline;
 }
 
 .titulo-sidebar {
@@ -36,11 +51,26 @@
     margin-left: 8px;
     font-weight: 600;
     transition: color 0.2s ease;
+    position: relative;
+}
+
+.titulo-sidebar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #f1debd;
+    transition: width 0.2s ease;
+}
+
+.titulo-sidebar:hover::after {
+    width: 100%;
 }
 
 .titulo-sidebar:hover {
     color: #f1debd !important;
-    text-decoration: underline;
 }
 
 .botao-fechar {

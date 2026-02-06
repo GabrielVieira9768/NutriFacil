@@ -2,7 +2,7 @@
     <div class="container-fluid d-flex justify-content-between align-items-center mx-4">
         <a class="navbar-brand" href="/">
             <img src="/public/assets/logo.png" alt="Logo" width="36" height="28" class="d-inline-block align-text-top rounded" style="margin-right: 2px;">
-            Game Over
+            <span class="texto-logo">NutriFácil</span>
         </a>
         <div class="" id="navbarNav">
             <ul class="navbar-nav d-flex flex-row">
