@@ -69,7 +69,7 @@
 
                     <div>
                         <label class="form-label">Imagem</label>
-                        <input id="image-<?php echo $post->id; ?>" type="file" class="form-control" name="image" accept="image/*" onchange="loadFile(event, <?php echo $post->id; ?>)">
+                        <input id="image-<?php echo $post->id; ?>" type="file" class="form-control mb-3" name="image" accept="image/*" onchange="loadFile(event, <?php echo $post->id; ?>)">
                         <img src="/<?= $post->image; ?>" id="output-<?php echo $post->id; ?>" class="img-fluid mb-3 rounded"/>
                     </div>
 

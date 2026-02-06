@@ -117,3 +117,21 @@ input[type="search"]::-webkit-search-results-decoration {
     border-top: 1px solid #fff;
     opacity: 1;
 }
+
+.botao-fechar {
+    border: none;
+    border-radius: 6px;
+    padding: 4px;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.botao-fechar:hover {
+    opacity: 0.8;
+    background: #3f4c61;
+}
+
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #333e50;
+}

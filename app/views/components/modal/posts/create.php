@@ -35,7 +35,7 @@
 
                     <div class="mb-3">
                         <label for="summary" class="form-label">Resumo</label>
-                        <textarea name="summary" class="form-control" id="summary" rows="2" placeholder="Escreva um breve resumo do post aqui..." style="resize: none" required></textarea>
+                        <textarea name="summary" class="form-control" id="summary" rows="2" placeholder="Escreva um breve resumo aqui..." style="resize: none" required></textarea>
                     </div>
 
                     <div class="mb-3">
