@@ -83,7 +83,7 @@ body {
     margin-right: 0px;
 }
 
-.titulo-sobre {
+.titulo-principal, .titulo-sobre {
     font-size: 44px;
     color: #333e50;
     font-weight: 600;

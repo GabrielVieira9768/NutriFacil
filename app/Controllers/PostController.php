@@ -82,17 +82,27 @@ class PostController
         $novoNome = uniqid();
         $pasta = 'public/img/';
         $extencao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
-        move_uploaded_file($_FILES['image']['tmp_name'], $pasta . $novoNome . "." . $extencao);
+
+        move_uploaded_file(
+            $_FILES['image']['tmp_name'],
+            $pasta . $novoNome . "." . $extencao
+        );
 
         $parameters = [
             'title' => $_POST['title'],
-            'image' => $pasta . $novoNome . "." . $extencao,
+            'summary' => $_POST['summary'],
             'content' => $_POST['content'],
             'author' => $_POST['author'],
             'date' => $_POST['date'],
+            'category1' => $_POST['category1'],
+            'category2' => $_POST['category2'] ?? null,
+            'image' => $pasta . $novoNome . "." . $extencao,
+            'image_alt' => $_POST['image_alt'],
+            'image_source' => $_POST['image_source'],
         ];
 
-        App::get('database')->insert('posts',$parameters);
+        App::get('database')->insert('posts', $parameters);
+
         header('location: /posts');
     }
 
@@ -113,28 +123,39 @@ class PostController
     public function update()
     {
         $post = App::get('database')->find('posts', $_POST['id']);
+        $parameters = [];
 
-        if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+
             $arquivo = $_FILES['image']['name'];
 
-            $imagePath = $post['image'];
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
+            if (file_exists($post['image'])) {
+                unlink($post['image']);
             }
 
             $novoNome = uniqid();
             $pasta = 'public/img/';
             $extencao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+
             $caminhoNovaImagem = $pasta . $novoNome . "." . $extencao;
-            move_uploaded_file($_FILES['image']['tmp_name'], $caminhoNovaImagem);
+
+            move_uploaded_file(
+                $_FILES['image']['tmp_name'],
+                $caminhoNovaImagem
+            );
 
             $parameters['image'] = $caminhoNovaImagem;
         }
 
         $parameters['title'] = $_POST['title'];
+        $parameters['summary'] = $_POST['summary'];
         $parameters['content'] = $_POST['content'];
         $parameters['author'] = $_POST['author'];
         $parameters['date'] = $_POST['date'];
+        $parameters['category1'] = $_POST['category1'];
+        $parameters['category2'] = $_POST['category2'] ?? null;
+        $parameters['image_alt'] = $_POST['image_alt'];
+        $parameters['image_source'] = $_POST['image_source'];
 
         App::get('database')->edit('posts', $_POST['id'], $parameters);
 

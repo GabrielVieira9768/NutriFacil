@@ -111,3 +111,9 @@ input[type="search"]::-webkit-search-results-decoration {
 .delete-conteudo {
     font-size: 20px;
 }
+
+.separador {
+    border: none;
+    border-top: 1px solid #fff;
+    opacity: 1;
+}
