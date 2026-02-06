@@ -74,6 +74,10 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn modal-botao" data-bs-dismiss="modal">Fechar</button>
+                <form method="post" action="post">
+                    <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+                    <button type="submit" class="btn modal-botao">Visualizar</button>
+                </form>
             </div>
 
         </div>

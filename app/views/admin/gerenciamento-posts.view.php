@@ -64,7 +64,14 @@
                 <?php foreach ($posts as $post) : ?>
                     <tr>
                         <td><?php echo $post->id; ?></td>
-                        <td><?php echo $post->title; ?></td>
+                        <td class="titulo-post">
+                            <form method="post" action="post">
+                                <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+                                <button type="submit" class="titulo-post-btn">
+                                    <?php echo $post->title; ?>
+                                </button>
+                            </form>
+                        </td>
                         <td><?php echo $post->author; ?></td>
                         <td><?php echo date('d/m/Y', strtotime($post->date)); ?></td>
                         <td>

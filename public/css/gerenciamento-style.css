@@ -24,6 +24,13 @@ td {
 .botao {
     background-color: #333e50;
     fill: white !important;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 .botao:hover {
@@ -75,6 +82,32 @@ input[type="search"]::-webkit-search-results-decoration {
     color: white;
     margin-left: 4px;
     font-weight: 600;
+}
+
+.titulo-post-btn {
+    position: relative;
+    font-weight: 600;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.titulo-post-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #333e50;
+    transition: width 0.3s ease;
+}
+
+.titulo-post-btn:hover::after {
+    width: 100%;
 }
 
 /* Modais */

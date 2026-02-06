@@ -26,7 +26,7 @@
         <div class="slogan d-flex align-items-center mb-5">
             <div>
                 <h1 class="titulo-principal">NutriFácil</h1>
-                <p>Onde cada jogo conta uma história única e emocionante. Descubra o seu próximo desafio!</p>
+                <p>Promovendo hábitos alimentares saudáveis e educação nutricional. Descubra dicas práticas e receitas para uma vida equilibrada!</p>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
     <div class="mb-5 secao-publicacoes">
         <div class="d-flex justify-content-center mb-4">
             <h2 class="title-publicacoes">
-                Publicações
+                Publicações Recentes
             </h2>
         </div>
         <div class="d-flex justify-content-center flex-wrap mx-4">
@@ -67,11 +67,11 @@
         <div class="d-flex justify-content-center m-5 secao-sobre">
             <div class="texto-sobre">
                 <h2 class="mb-4 titulo-sobre">O Projeto</h2>
-                <p>Bem-vindo ao Game Over, o seu destino definitivo para explorar o vasto universo dos jogos. Nosso time é formado por gamers entusiastas e especialistas dedicados, apaixonados por mergulhar fundo nas mecânicas, histórias e impactos culturais dos jogos. Acreditamos que cada jogo é uma experiência única, capaz de inspirar, desafiar e conectar jogadores de todos os cantos do mundo.</p>
-                <p>Em nosso blog, você encontrará análises detalhadas, notícias frescas, entrevistas com desenvolvedores e muito mais. Nosso objetivo é ser a sua fonte confiável de informações e insights sobre o universo dos jogos, sempre buscando oferecer conteúdo que enriqueça sua experiência gaming.</p>
+                <p>NutriFácil é uma plataforma dedicada a promover educação nutricional, fornecendo informações confiáveis sobre alimentação saudável e hábitos de vida equilibrados.</p>
+                <p>Nosso objetivo é ajudar cada indivíduo a compreender melhor a importância dos nutrientes, planejar refeições balanceadas e adotar um estilo de vida mais saudável, sempre com dicas práticas e acessíveis para o dia a dia.</p>
             </div>
             <div class="slogan d-flex align-items-center">
-                <img style="max-width: 460px;" src="public/assets/galeria_de_jogos.jpeg" alt="Logo da Game Over" class="rounded">
+                <img style="max-width: 460px;" src="public/assets/sobre-image.png" alt="Logo da Game Over" class="rounded">
             </div>
         </div>
     </div>
