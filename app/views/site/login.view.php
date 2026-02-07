@@ -43,11 +43,11 @@
                         </div>
                     <?php endif; ?>
                     <div class="d-flex justify-content-center mb-2 mt-4">
-                        <button type="submit" class="btn botao-login">Entrar</button>
+                        <button type="submit" class="btn botao-login" title="Entrar no sistema">Entrar</button>
                     </div>
                 </form>
                 <div class="d-flex align-items-center justify-content-center mb-4 mt-3">
-                    <a href="/" class="link-login">
+                    <a href="/" class="link-login" title="Retornar à página inicial">
                         <p class="m-0">Retornar a Home</p>
                     </a>
                 </div>

@@ -200,11 +200,18 @@ class PostController
 
     public function search()
     {
-        $pesquisa = filter_input(INPUT_GET,'search');
+        $pesquisa = filter_input(INPUT_GET, 'search');
 
         $postsByTitle = App::get('database')->busca('posts', $pesquisa, 'title');
         $postsByAuthor = App::get('database')->busca('posts', $pesquisa, 'author');
-        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor), SORT_REGULAR);
+        $postsByCategory1 = App::get('database')->busca('posts', $pesquisa, 'category1');
+        $postsByCategory2 = App::get('database')->busca('posts', $pesquisa, 'category2');
+
+        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2), SORT_REGULAR);
+
+        usort($posts, function ($a, $b) {
+            return strtotime($b->date) - strtotime($a->date);
+        });
 
         $pagination = false;
 
@@ -213,16 +220,24 @@ class PostController
 
     public function searchPosts()
     {
-        $pesquisa = filter_input(INPUT_GET,'search');
+        $pesquisa = filter_input(INPUT_GET, 'search');
 
         $postsByTitle = App::get('database')->busca('posts', $pesquisa, 'title');
         $postsByAuthor = App::get('database')->busca('posts', $pesquisa, 'author');
-        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor), SORT_REGULAR);
+        $postsByCategory1 = App::get('database')->busca('posts', $pesquisa, 'category1');
+        $postsByCategory2 = App::get('database')->busca('posts', $pesquisa, 'category2');
+
+        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2), SORT_REGULAR);
+
+        usort($posts, function ($a, $b) {
+            return strtotime($b->date) - strtotime($a->date);
+        });
 
         $pagination = false;
 
         return view("site/galeria", compact('posts', 'pagination'));
     }
+
 }
 
 ?>

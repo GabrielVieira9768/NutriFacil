@@ -34,7 +34,7 @@
             <div class="d-flex justify-content-center mb-5 mx-auto" style="max-width: 540px;">
                 <form action="/galeria/busca" method="GET" class="input-group">
                     <input type="search" name="search" class="form-control input-pesquisa" placeholder="Pesquisar..." aria-label="Recipient's username" aria-describedby="button-pesquisa">
-                    <button class="btn search-botao" type="submit" id="button-pesquisa">
+                    <button class="btn search-botao" type="submit" id="button-pesquisa" title="Pesquisar">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                             <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
                         </svg>
@@ -48,7 +48,7 @@
                 <div class="mx-2 mb-3 card-post">
                     <form action="post" method="POST">
                         <input type="hidden" name="id" value="<?php echo $post->id ?>">
-                        <button type="submit" class="btn m-0 p-0">
+                        <button type="submit" class="btn m-0 p-0" title="Acessar postagem completa">
                             <div class="card d-flex borda-post" style="height: 200px; width: 660px;">
                                 <img src="/<?= $post->image; ?>" class="card-img-left flex-grow-0 fixed-width-image rounded-start" alt="Imagem do post">
                                 <div class="card-body d-flex flex-column justify-content-between text-left">

@@ -30,28 +30,27 @@
                     <p class="card-text author-date text-body-secondary"><?php echo $postInd->summary ?></p>
 
                     <?php
-                    // Mapeamento para mostrar categorias amigáveis
-                    $categories_map = [
-                        "actividade-fisica" => "Atividade física",
-                        "alimentacao" => "Alimentação saudável",
-                        "alimentacao-esportiva" => "Alimentação esportiva",
-                        "alimentacao-infantil" => "Nutrição infantil",
-                        "bem-estar" => "Bem-estar",
-                        "curiosidades" => "Curiosidades sobre alimentos",
-                        "dicas" => "Dicas práticas",
-                        "educacao" => "Educação nutricional",
-                        "fitoterapia" => "Fitoterapia e chás medicinais",
-                        "ganho-de-massa" => "Ganho de massa",
-                        "hidratação" => "Hidratação",
-                        "perda-de-peso" => "Perda de peso",
-                        "planejamento" => "Planejamento de refeições",
-                        "receitas" => "Receitas",
-                        "saude-mental" => "Saúde mental",
-                        "suplementos" => "Suplementação alimentar"
-                    ];
+                        $categories_map = [
+                            "actividade-fisica" => "Atividade física",
+                            "alimentacao" => "Alimentação saudável",
+                            "alimentacao-esportiva" => "Alimentação esportiva",
+                            "alimentacao-infantil" => "Nutrição infantil",
+                            "bem-estar" => "Bem-estar",
+                            "curiosidades" => "Curiosidades sobre alimentos",
+                            "dicas" => "Dicas práticas",
+                            "educacao" => "Educação nutricional",
+                            "fitoterapia" => "Fitoterapia e chás medicinais",
+                            "ganho-de-massa" => "Ganho de massa",
+                            "hidratação" => "Hidratação",
+                            "perda-de-peso" => "Perda de peso",
+                            "planejamento" => "Planejamento de refeições",
+                            "receitas" => "Receitas",
+                            "saude-mental" => "Saúde mental",
+                            "suplementos" => "Suplementação alimentar"
+                        ];
 
-                    $category1_text = $categories_map[$postInd->category1] ?? $postInd->category1;
-                    $category2_text = $categories_map[$postInd->category2] ?? $postInd->category2;
+                        $category1_text = $categories_map[$postInd->category1] ?? $postInd->category1;
+                        $category2_text = $categories_map[$postInd->category2] ?? $postInd->category2;
                     ?>
 
                     <div class="post-info d-flex justify-content-between align-items-center mb-3">
@@ -112,7 +111,7 @@
         <?php foreach ($recentPosts as $recent_post) : ?>
             <form method="post" action="post" class="card-form" style="margin: 0; cursor: pointer;">
                 <input type="hidden" name="id" value="<?= $recent_post->id ?>">
-                <div class="card mx-3 mb-3 card-post" onclick="this.closest('form').submit()">
+                <div class="card mx-3 mb-3 card-post" onclick="this.closest('form').submit()" title="Acessar postagem completa">
                     <img src="/<?= $recent_post->image; ?>" class="card-img-top fixed-height-image" alt="Imagem do post">
                     <div class="card-body rounded d-flex flex-column justify-content-between">
                         <h5 class="card-title"><?= $recent_post->title ?></h5>

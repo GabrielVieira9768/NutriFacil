@@ -62,6 +62,7 @@ body {
     opacity: 1;
     background-color: #212b41;
     border: none;
+    margin: auto-top;
 }
 
 .botao-expand:active {
@@ -78,7 +79,6 @@ body {
     border: none !important;
 }
 
-/* ===== Botão voltar ao topo ===== */
 .btn-topo {
     position: fixed;
     bottom: 30px;

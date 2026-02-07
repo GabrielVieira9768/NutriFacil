@@ -58,16 +58,19 @@ body {
 .botao-index {
     background-color: #333e50;
     color: white;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .botao-index:hover {
-    background-color: #212b41;
-    color: white;
+    background-color: #3f4c61;
+    color: white !important;
+    transform: scale(1.1);
 }
 
 .botao-index:active {
-    background-color: #212b41 !important;
+    background-color: #333e50 !important;
     color: white !important;
+    transform: scale(1);
 }
 
 .span-text {

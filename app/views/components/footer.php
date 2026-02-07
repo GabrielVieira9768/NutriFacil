@@ -5,19 +5,19 @@
         </div>
 
         <div>
-            <a href="https://www.facebook.com" class="me-4 text-reset">
+            <a href="https://www.facebook.com" class="me-4 text-reset" title="Facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://x.com" class="me-4 text-reset">
+            <a href="https://x.com" class="me-4 text-reset" title="Twitter">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="https://gmail.com" class="me-4 text-reset">
+            <a href="https://gmail.com" class="me-4 text-reset" title="Gmail">
                 <i class="fab fa-google"></i>
             </a>
-            <a href="https://instagram.com" class="me-4 text-reset">
+            <a href="https://instagram.com" class="me-4 text-reset" title="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://linkedin.com" class="me-4 text-reset">
+            <a href="https://linkedin.com" class="me-4 text-reset" title="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
         </div>
@@ -32,18 +32,18 @@
                         <span class="span-text mx-2">Navegação</span>
                     </h6>
                     <p>
-                        <a href="/" class="text-reset link-footer">Home</a>
+                        <a href="/" class="text-reset link-footer" title="Acessar a Home">Home</a>
                     </p>
                     <p>
-                        <a href="/galeria" class="text-reset link-footer">Galeria</a>
+                        <a href="/galeria" class="text-reset link-footer" title="Acessar a Galeria">Galeria</a>
                     </p>
                     <?php if(empty($_SESSION['email']) && empty($_SESSION['password'])) { ?>
                         <p>
-                            <a class="text-reset link-footer" href="/login">Login</a>
+                            <a class="text-reset link-footer" href="/login" title="Acessar o Login">Login</a>
                         <p>
                     <?php } else {?>
                         <p>
-                            <a class="text-reset link-footer" href="/logout">Logout</a>
+                            <a class="text-reset link-footer" href="/logout" title="Sair do sistema">Logout</a>
                         <p>
                     <?php } ?>
                 </div>

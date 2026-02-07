@@ -169,3 +169,18 @@ input[type="search"]::-webkit-search-results-decoration {
     box-shadow: none;
     border-color: #333e50;
 }
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.category {
+    background-color: #fa9c4f;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+}
