@@ -16,10 +16,7 @@ body {
     background-color: #f1debd;
 }
 
-.input-pesquisa:active {
-    background-color: #f1debd;
-}
-
+.input-pesquisa:active,
 .input-pesquisa:focus {
     background-color: #f1debd;
     box-shadow: none;
@@ -31,10 +28,7 @@ body {
     fill: white;
 }
 
-.search-botao:hover {
-    background-color: #212b41;
-}
-
+.search-botao:hover,
 .search-botao:active {
     background-color: #212b41 !important;
 }
@@ -46,26 +40,31 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
-.borda-post {
-    border: none;
-}
-
 .card-post {
-    transition: transform 0.3s ease;
+    overflow: visible;
 }
 
-.card-post:hover {
-    transform: scale(1.03);
-}
-
-.fixed-width-image {
-    width: 200px;
+.card-post button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    width: 100%;
     height: auto;
-    object-fit: cover;
+    display: block;
 }
 
-.card {
+.card-post .card {
     flex-direction: row;
+    min-height: 200px;
+    max-height: 200px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-post .card:hover {
+    transform: translateY(-5px);
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-body {
@@ -73,7 +72,8 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: #333e50;
 }
 
-.card-title, .card-text {
+.card-title, 
+.card-text {
     color: white !important;
     text-align: left;
     font-weight: 400;
@@ -86,4 +86,16 @@ input[type="search"]::-webkit-search-results-decoration {
 .conteudo {
     text-align: justify;
     font-size: 14px;
+}
+
+.fixed-width-image {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: inherit;
+}
+
+.borda-post {
+    border: none;
 }

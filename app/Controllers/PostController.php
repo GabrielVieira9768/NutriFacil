@@ -75,11 +75,39 @@ class PostController
 
         $allPosts = App::get('database')->selectAll('posts');
 
-        $recentPosts = array_filter($allPosts, function($post) use ($postInd) {
+        usort($allPosts, function($a, $b) {
+            return strtotime($b->date) - strtotime($a->date);
+        });
+
+        $lastTenPosts = array_filter(array_slice($allPosts, 0, 10), function($post) use ($postInd) {
             return $post->id != $postInd->id;
         });
 
-        $recentPosts = array_slice($recentPosts, 0, 3);
+        $matchingPosts = [];
+        $nonMatchingPosts = [];
+
+        foreach($lastTenPosts as $post) {
+            $categoriesCurrent = [$postInd->category1, $postInd->category2];
+            $categoriesPost = [$post->category1, $post->category2];
+
+            $hasMatch = count(array_intersect($categoriesCurrent, $categoriesPost)) > 0;
+
+            if($hasMatch) {
+                $matchingPosts[] = $post;
+            } else {
+                $nonMatchingPosts[] = $post;
+            }
+        }
+
+        shuffle($matchingPosts);
+        shuffle($nonMatchingPosts);
+
+        $recentPosts = array_slice($matchingPosts, 0, 3);
+
+        if(count($recentPosts) < 3) {
+            $needed = 3 - count($recentPosts);
+            $recentPosts = array_merge($recentPosts, array_slice($nonMatchingPosts, 0, $needed));
+        }
 
         return view('site/post-individual', compact('postInd', 'recentPosts'));
     }
