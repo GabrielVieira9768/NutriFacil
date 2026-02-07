@@ -6,11 +6,13 @@ body {
 .titulo-dash {
     font-size: 44px;
     font-weight: 600;
+    color: #333e50;
 }
 
 .titulo-posts {
     font-size: 32px;
     font-weight: 600;
+    color: #333e50;
 }
 
 .card-body {

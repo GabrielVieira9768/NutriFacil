@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal-adicionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <form enctype="multipart/form-data" action="/posts/create" method="POST">
 
@@ -47,31 +47,53 @@
                         <div style="width: 100%; margin-right: 10px;">
                             <label for="category1" class="form-label">Categoria 1</label>
                             <select name="category1" class="form-select" id="category1" required>
-                                <option value="" disabled selected>---</option>
+                                <option value="actividade-fisica">Atividade física</option>
                                 <option value="alimentacao">Alimentação saudável</option>
-                                <option value="educacao">Educação nutricional</option>
-                                <option value="receitas">Receitas</option>
+                                <option value="alimentacao-esportiva">Alimentação esportiva</option>
                                 <option value="bem-estar">Bem-estar</option>
+                                <option value="curiosidades">Curiosidades sobre alimentos</option>
                                 <option value="dicas">Dicas práticas</option>
+                                <option value="educacao">Educação nutricional</option>
+                                <option value="fitoterapia">Fitoterapia e chás medicinais</option>
+                                <option value="ganho-de-massa">Ganho de massa</option>
+                                <option value="hidratação">Hidratação</option>
+                                <option value="alimentacao-infantil">Nutrição infantil</option>
+                                <option value="perda-de-peso">Perda de peso</option>
+                                <option value="planejamento">Planejamento de refeições</option>
+                                <option value="receitas">Receitas</option>
+                                <option value="saude-mental">Saúde mental</option>
+                                <option value="suplementos">Suplementação alimentar</option>
+                                <option value="" disabled selected>---</option>
                             </select>
                         </div>
 
                         <div style="width: 100%; margin-left: 10px;">
                             <label for="category2" class="form-label">Categoria 2 (opcional)</label>
                             <select name="category2" class="form-select" id="category2">
-                                <option value="">---</option>
+                                <option value="actividade-fisica">Atividade física</option>
                                 <option value="alimentacao">Alimentação saudável</option>
-                                <option value="educacao">Educação nutricional</option>
-                                <option value="receitas">Receitas</option>
+                                <option value="alimentacao-esportiva">Alimentação esportiva</option>
                                 <option value="bem-estar">Bem-estar</option>
+                                <option value="curiosidades">Curiosidades sobre alimentos</option>
                                 <option value="dicas">Dicas práticas</option>
+                                <option value="educacao">Educação nutricional</option>
+                                <option value="fitoterapia">Fitoterapia e chás medicinais</option>
+                                <option value="ganho-de-massa">Ganho de massa</option>
+                                <option value="hidratação">Hidratação</option>
+                                <option value="alimentacao-infantil">Nutrição infantil</option>
+                                <option value="perda-de-peso">Perda de peso</option>
+                                <option value="planejamento">Planejamento de refeições</option>
+                                <option value="receitas">Receitas</option>
+                                <option value="saude-mental">Saúde mental</option>
+                                <option value="suplementos">Suplementação alimentar</option>
+                                <option value="" selected>---</option>
                             </select>
                         </div>
                     </div>
 
                     <hr class="separador mt-4">
 
-                    <div>
+                    <div class="mb-3">
                         <label for="image" class="form-label">Imagem</label>
                         <input id="image-0" type="file" class="form-control" name="image" accept="image/*" onchange="loadFile(event, 0)" required>
                         <img id="output-0" class="img-fluid mb-3 rounded" />

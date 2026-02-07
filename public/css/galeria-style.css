@@ -3,6 +3,12 @@ body {
     font-family: "Noto Serif", serif;
 }
 
+.titulo-galeria {
+    font-size: 44px;
+    font-weight: 600;
+    color: #333e50;
+}
+
 .input-pesquisa {
     border-radius: 0;
     border: none;

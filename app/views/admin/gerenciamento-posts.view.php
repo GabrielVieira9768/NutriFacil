@@ -23,7 +23,7 @@
 
     <div class="text-center mb-5">
         <header>
-            <h1 class="titulo">Gerenciamento de Posts</h1>
+            <h1 class="titulo">NutriFácil - Gerenciamento de Posts</h1>
         </header>
     </div>
 

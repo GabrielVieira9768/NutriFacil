@@ -1,7 +1,6 @@
 <div class="modal fade" id="modal-show-<?php echo $post->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-
             <div class="modal-header d-flex justify-content-between">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Visualizar Post</h1>
                 <button type="button" class="btn botao-fechar" data-bs-dismiss="modal" aria-label="Close">
@@ -12,6 +11,30 @@
             </div>
 
             <div class="modal-body">
+
+                <?php
+                    $categories = [
+                        "actividade-fisica" => "Atividade física",
+                        "alimentacao" => "Alimentação saudável",
+                        "alimentacao-esportiva" => "Alimentação esportiva",
+                        "alimentacao-infantil" => "Nutrição infantil",
+                        "bem-estar" => "Bem-estar",
+                        "curiosidades" => "Curiosidades sobre alimentos",
+                        "dicas" => "Dicas práticas",
+                        "educacao" => "Educação nutricional",
+                        "fitoterapia" => "Fitoterapia e chás medicinais",
+                        "ganho-de-massa" => "Ganho de massa",
+                        "hidratação" => "Hidratação",
+                        "perda-de-peso" => "Perda de peso",
+                        "planejamento" => "Planejamento de refeições",
+                        "receitas" => "Receitas",
+                        "saude-mental" => "Saúde mental",
+                        "suplementos" => "Suplementação alimentar"
+                    ];
+
+                    $category1_text = $categories[$post->category1] ?? $post->category1;
+                    $category2_text = $categories[$post->category2] ?? $post->category2;
+                ?>
 
                 <div class="mb-3 d-flex justify-content-start">
                     <div style="width: 100%; margin-right: 10px;">
@@ -44,11 +67,11 @@
                 <div class="mb-3 d-flex justify-content-start">
                     <div style="width: 100%; margin-right: 10px;">
                         <label class="form-label">Categoria 1</label>
-                        <input value="<?php echo $post->category1; ?>" type="text" class="form-control" readonly>
+                        <input value="<?php echo $category1_text; ?>" type="text" class="form-control" readonly>
                     </div>
                     <div style="width: 100%; margin-left: 10px;">
                         <label class="form-label">Categoria 2</label>
-                        <input value="<?php echo $post->category2; ?>" type="text" class="form-control" readonly>
+                        <input value="<?php echo $category2_text; ?>" type="text" class="form-control" readonly>
                     </div>
                 </div>
 
@@ -72,12 +95,11 @@
 
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn modal-botao" data-bs-dismiss="modal">Fechar</button>
-                <form method="post" action="post">
-                    <input type="hidden" name="id" value="<?php echo $post->id; ?>">
-                    <button type="submit" class="btn modal-botao">Visualizar</button>
-                </form>
+            <div class="modal-footer"> 
+                <button type="button" class="btn modal-botao" data-bs-dismiss="modal">Fechar</button> 
+                <form method="post" action="post"> <input type="hidden" name="id" value="<?php echo $post->id; ?>"> 
+                    <button type="submit" class="btn modal-botao">Visualizar</button> 
+                </form> 
             </div>
 
         </div>

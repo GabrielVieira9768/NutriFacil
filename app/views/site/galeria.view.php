@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lista de Posts</title>
+    <title>NutriFácil - Galeria de Posts</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/galeria-style.css">
@@ -24,7 +24,7 @@
     <div class="mb-5">
         <div class="text-center my-5">
             <header>
-                <h1 style="font-size: 44px; font-weight: 600;">Galeria de Posts</h1>
+                <h1 class="titulo-galeria">Galeria de Posts</h1>
             </header>
         </div>
 
