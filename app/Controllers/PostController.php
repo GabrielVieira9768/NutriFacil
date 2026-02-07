@@ -11,10 +11,10 @@ class PostController
     {
         $page = 1;
 
-        if(isset($_GET['pagina']) && !empty($_GET['pagina'])){
+        if (isset($_GET['pagina']) && !empty($_GET['pagina'])) {
             $page = intval($_GET['pagina']);
 
-            if($page <= 0){
+            if ($page <= 0) {
                 return redirect('posts');
             }
         }
@@ -23,16 +23,15 @@ class PostController
         $start = $itensPage * $page - $itensPage;
         $rows_count = App::get('database')->countAll('posts');
 
-        if($start > $rows_count)
-        {
+        if ($start > $rows_count) {
             return redirect('posts');
         }
 
         $posts = App::get('database')->selectAll('posts', $start, $itensPage);
-        $total_pages = ceil($rows_count/$itensPage);
+        $total_pages = ceil($rows_count / $itensPage);
         $pagination = true;
 
-        return view('admin/gerenciamento-posts', compact('posts','page','total_pages', 'pagination'));
+        return view('admin/gerenciamento-posts', compact('posts', 'page', 'total_pages', 'pagination'));
     }
 
     public function indexHome()
@@ -45,11 +44,11 @@ class PostController
     {
         $page = 1;
 
-        if(isset($_GET['pagina']) && !empty($_GET['pagina'])){
+        if (isset($_GET['pagina']) && !empty($_GET['pagina'])) {
             $page = intval($_GET['pagina']);
 
-            if($page <= 0){
-                return redirect('posts');
+            if ($page <= 0) {
+                return redirect('galeria');
             }
         }
 
@@ -57,42 +56,45 @@ class PostController
         $start = $itensPage * $page - $itensPage;
         $rows_count = App::get('database')->countAll('posts');
 
-        if($start > $rows_count)
-        {
-            return redirect('posts');
+        if ($start > $rows_count) {
+            return redirect('galeria');
         }
 
         $posts = App::get('database')->selectAll('posts', $start, $itensPage);
-        $total_pages = ceil($rows_count/$itensPage);
+        $total_pages = ceil($rows_count / $itensPage);
         $pagination = true;
 
-        return view('site/galeria', compact('posts','page','total_pages', 'pagination'));
+        return view('site/galeria', compact('posts', 'page', 'total_pages', 'pagination'));
     }
 
-    public function indexUnique()
+    // ✅ Agora recebe o ID pela URL
+    public function indexUnique($id)
     {
-        $postInd = (object) App::get('database')->find('posts', $_POST['id']);
+        $postInd = (object) App::get('database')->find('posts', $id);
+
+        if (!$postInd) {
+            return redirect('');
+        }
 
         $allPosts = App::get('database')->selectAll('posts');
 
-        usort($allPosts, function($a, $b) {
+        usort($allPosts, function ($a, $b) {
             return strtotime($b->date) - strtotime($a->date);
         });
 
-        $lastTenPosts = array_filter(array_slice($allPosts, 0, 10), function($post) use ($postInd) {
-            return $post->id != $postInd->id;
-        });
+        $lastTenPosts = array_filter(
+            array_slice($allPosts, 0, 10),
+            fn($post) => $post->id != $postInd->id
+        );
 
         $matchingPosts = [];
         $nonMatchingPosts = [];
 
-        foreach($lastTenPosts as $post) {
+        foreach ($lastTenPosts as $post) {
             $categoriesCurrent = [$postInd->category1, $postInd->category2];
             $categoriesPost = [$post->category1, $post->category2];
 
-            $hasMatch = count(array_intersect($categoriesCurrent, $categoriesPost)) > 0;
-
-            if($hasMatch) {
+            if (count(array_intersect($categoriesCurrent, $categoriesPost)) > 0) {
                 $matchingPosts[] = $post;
             } else {
                 $nonMatchingPosts[] = $post;
@@ -104,9 +106,11 @@ class PostController
 
         $recentPosts = array_slice($matchingPosts, 0, 3);
 
-        if(count($recentPosts) < 3) {
-            $needed = 3 - count($recentPosts);
-            $recentPosts = array_merge($recentPosts, array_slice($nonMatchingPosts, 0, $needed));
+        if (count($recentPosts) < 3) {
+            $recentPosts = array_merge(
+                $recentPosts,
+                array_slice($nonMatchingPosts, 0, 3 - count($recentPosts))
+            );
         }
 
         return view('site/post-individual', compact('postInd', 'recentPosts'));
@@ -139,7 +143,7 @@ class PostController
 
         App::get('database')->insert('posts', $parameters);
 
-        header('location: /posts');
+        header('Location: /posts');
     }
 
     public function delete()
@@ -163,12 +167,11 @@ class PostController
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
 
-            $arquivo = $_FILES['image']['name'];
-
             if (file_exists($post['image'])) {
                 unlink($post['image']);
             }
 
+            $arquivo = $_FILES['image']['name'];
             $novoNome = uniqid();
             $pasta = 'public/img/';
             $extencao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
@@ -207,11 +210,12 @@ class PostController
         $postsByCategory1 = App::get('database')->busca('posts', $pesquisa, 'category1');
         $postsByCategory2 = App::get('database')->busca('posts', $pesquisa, 'category2');
 
-        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2), SORT_REGULAR);
+        $posts = array_unique(
+            array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2),
+            SORT_REGULAR
+        );
 
-        usort($posts, function ($a, $b) {
-            return strtotime($b->date) - strtotime($a->date);
-        });
+        usort($posts, fn($a, $b) => strtotime($b->date) - strtotime($a->date));
 
         $pagination = false;
 
@@ -227,17 +231,17 @@ class PostController
         $postsByCategory1 = App::get('database')->busca('posts', $pesquisa, 'category1');
         $postsByCategory2 = App::get('database')->busca('posts', $pesquisa, 'category2');
 
-        $posts = array_unique(array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2), SORT_REGULAR);
+        $posts = array_unique(
+            array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2),
+            SORT_REGULAR
+        );
 
-        usort($posts, function ($a, $b) {
-            return strtotime($b->date) - strtotime($a->date);
-        });
+        usort($posts, fn($a, $b) => strtotime($b->date) - strtotime($a->date));
 
         $pagination = false;
 
         return view("site/galeria", compact('posts', 'pagination'));
     }
-
 }
 
 ?>

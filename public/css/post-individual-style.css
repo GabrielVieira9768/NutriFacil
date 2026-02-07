@@ -1,10 +1,8 @@
-/* ===== Estilos gerais do post ===== */
 body {
     background-color: #f1debd;
     font-family: "Noto Serif", serif;
 }
 
-/* ===== Título e conteúdo do post ===== */
 .post-title {
     font-weight: 600;
     font-size: 36px;
@@ -26,6 +24,7 @@ body {
 .categories {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .category {
@@ -61,13 +60,10 @@ body {
 .botao-expand:hover {
     opacity: 1;
     background-color: #212b41;
-    border: none;
-    margin: auto-top;
 }
 
 .botao-expand:active {
     background-color: #333e50;
-    border: none;
 }
 
 .modal-content {
@@ -128,6 +124,17 @@ body {
     justify-content: center;
     gap: 20px;
     align-items: stretch;
+    margin: 0 auto;
+}
+
+.secao-publicacoes a.card-post {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: flex;
+}
+
+.secao-publicacoes a.card-post:hover {
+    color: inherit !important;
 }
 
 .card-post {
@@ -140,7 +147,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 24rem;
+    flex: 0 0 24rem;
 }
 
 .card-post:hover {
@@ -160,6 +167,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #333e50;
+    color: white;
+}
+
+.card-title,
+.card-post .conteudo,
+.card-post small {
+    color: white !important;
 }
 
 .card-title {

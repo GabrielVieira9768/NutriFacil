@@ -66,12 +66,12 @@
                     <tr>
                         <td><?php echo $post->id; ?></td>
                         <td class="titulo-post">
-                            <form method="post" action="post">
-                                <input type="hidden" name="id" value="<?php echo $post->id; ?>">
-                                <button type="submit" class="titulo-post-btn" title="Acessar postagem completa">
-                                    <?php echo $post->title; ?>
-                                </button>
-                            </form>
+                            <a href="/post/<?php echo $post->id; ?>"
+                            class="titulo-post-btn"
+                            title="Acessar postagem completa"
+                            style="color: inherit; text-decoration: none;">
+                                <?php echo $post->title; ?>
+                            </a>
                         </td>
                         <td><?php echo $post->author; ?></td>
                         <td><?php echo date('d/m/Y', strtotime($post->date)); ?></td>

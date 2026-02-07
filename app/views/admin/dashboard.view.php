@@ -68,19 +68,29 @@
             <?php foreach (array_slice($posts, 0, 4) as $post) : ?>
                 <div class="card mx-2" style="width: 18rem;">
                     <img src="/<?= $post->image; ?>" class="card-img-top fixed-height-image" alt="Imagem do post">
+
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h5 class="card-title"><?php echo $post->title ?></h5>
                         <p class="card-text"><?php echo date('d/m/Y', strtotime($post->date)); ?></p>
+
                         <div class="d-flex flex-column align-items-center mt-auto">
-                            <form method="post" action="post">
-                                <input type="hidden" name="id" value="<?php echo $post->id ?>">
-                                <button type="submit" class="btn d-flex align-items-center botao-posts" title="Acessar postagem completa">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="rgb(55, 55, 55)">
-                                        <path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" />
-                                    </svg>
-                                    <span class="span-text">Post Completo</span>
-                                </button>
-                            </form>
+
+                            <a href="/post/<?php echo $post->id ?>"
+                            class="btn d-flex align-items-center botao-posts"
+                            title="Acessar postagem completa">
+
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    height="24px"
+                                    viewBox="0 -960 960 960"
+                                    width="24px"
+                                    fill="rgb(55, 55, 55)">
+                                    <path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/>
+                                </svg>
+
+                                <span class="span-text">Post Completo</span>
+
+                            </a>
+
                         </div>
                     </div>
                 </div>

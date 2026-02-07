@@ -44,6 +44,17 @@ input[type="search"]::-webkit-search-results-decoration {
     overflow: visible;
 }
 
+/* Remove estilo padrão de link dentro do card */
+.card-post,
+.card-post a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.card-post a:hover {
+    color: white !important;
+}
+
 .card-post button {
     border: none;
     padding: 0;
@@ -67,16 +78,27 @@ input[type="search"]::-webkit-search-results-decoration {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-body {
+/* Fundo escuro garantido */
+.card-post .card-body {
     flex-grow: 1;
-    background-color: #333e50;
+    background-color: #333e50 !important;
 }
 
-.card-title, 
-.card-text {
-    color: white !important;
-    text-align: left;
-    font-weight: 400;
+.card-post .card-body .card-title {
+    color: #ffffff !important;
+}
+
+.card-post .card-body .card-text,
+.card-post .card-body small,
+.card-post .card-body p,
+.card-post .card-body span {
+    color: #ffffff !important;
+}
+
+/* Correção final da cor do título */
+
+.card-post .card .card-body .card-title {
+    color: #ffffff !important;
 }
 
 .card-title {
@@ -111,6 +133,6 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 5px 10px;
     border-radius: 6px;
     font-size: 14px;
-    color: #fff;
+    color: #fff !important;
     font-weight: 600;
 }

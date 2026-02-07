@@ -18,7 +18,7 @@ body {
 .card-body {
     background-color: #333e50;
     color: white;
-    border-radius:  0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
 }
 
 .fixed-height-image {
@@ -30,11 +30,18 @@ body {
 .botao-posts {
     background-color: #d1d6da;
     color: black;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .botao-posts:hover {
     background-color: #acb2b6;
     color: black;
+    transform: scale(1.1);
+}
+
+.botao-posts:active {
+    background-color: #d1d6da;
+    transform: scale(1);
 }
 
 .span-text {

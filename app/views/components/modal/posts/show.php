@@ -96,10 +96,15 @@
             </div>
 
             <div class="modal-footer"> 
-                <button type="button" class="btn modal-botao" data-bs-dismiss="modal" title="Fechar modal">Fechar</button> 
-                <form method="post" action="post"> <input type="hidden" name="id" value="<?php echo $post->id; ?>"> 
-                    <button type="submit" class="btn modal-botao" title="Acessar postagem completa">Visualizar</button> 
-                </form> 
+                    <button type="button" class="btn modal-botao" data-bs-dismiss="modal" title="Fechar modal">
+                        Fechar
+                    </button>
+
+                    <a href="/post/<?php echo $post->id; ?>"
+                    class="btn modal-botao"
+                    title="Acessar postagem completa">
+                        Visualizar
+                    </a>
             </div>
 
         </div>
