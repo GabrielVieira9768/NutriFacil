@@ -2,7 +2,7 @@ body {
     background-color: #f1debd;
     font-family: "Noto Serif", serif;
     color: white;
-    background-image: url("/public/assets/logo-name.jpeg");
+    background-image: url("/public/assets/logo.png");
 }
 
 .card-login {

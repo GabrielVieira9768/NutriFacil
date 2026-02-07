@@ -19,7 +19,7 @@
     <div class="m-5">
         <div class="d-flex justify-content-center flex-column align-items-center card-login rounded">
             <div class="imagem-logo mt-4 mb-3">
-                <img class="img-fluid rounded" alt="Logo da Game Over" src="public/assets/logo-name.jpeg">
+                <img class="img-fluid rounded mt-2" alt="Logo da NutriFácil" src="public/assets/logo.png">
             </div>
             <div class="title-login mb-2">
                 <h2>Bem Vindo!</h2>
