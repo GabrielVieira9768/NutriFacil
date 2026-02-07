@@ -99,3 +99,18 @@ input[type="search"]::-webkit-search-results-decoration {
 .borda-post {
     border: none;
 }
+
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.category {
+    background-color: #fa9c4f;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+}

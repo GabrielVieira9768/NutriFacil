@@ -20,7 +20,9 @@
 </head>
 
 <body>
+                    
     <?php require('app/views/components/navbar.php'); ?>
+
     <div class="mb-5">
         <div class="text-center my-5">
             <header>
@@ -47,17 +49,48 @@
                     <form action="post" method="POST">
                         <input type="hidden" name="id" value="<?php echo $post->id ?>">
                         <button type="submit" class="btn m-0 p-0">
-                            <div class="card d-flex borda-post" style="height: 200px; width: 540px;">
+                            <div class="card d-flex borda-post" style="height: 200px; width: 660px;">
                                 <img src="/<?= $post->image; ?>" class="card-img-left flex-grow-0 fixed-width-image rounded-start" alt="Imagem do post">
                                 <div class="card-body d-flex flex-column justify-content-between text-left">
                                     <div>
                                         <h5 class="card-title"><?php echo $post->title ?></h5>
-                                        <p class="card-text conteudo"><?php echo substr($post->content, 0, 160) . "..." ?></p>
+                                        <p class="card-text conteudo"><?= $post->summary ?></p>
                                     </div>
                                     <div class="mt-auto">
                                         <p class="card-text" style="text-align: right !important;">
-                                            <small class=""><?php echo date('d/m/Y', strtotime($post->date)); ?></small> - <small><?php echo $post->author ?></small>
+                                            <small><?= $post->author ?> - <?= date('d/m/Y', strtotime($post->date)); ?></small>
                                         </p>
+                                    </div>
+                                    <div class="d-flex justify-content-end categories">
+                                            <?php
+                                                $categories_map = [
+                                                    "actividade-fisica" => "Atividade física",
+                                                    "alimentacao" => "Alimentação saudável",
+                                                    "alimentacao-esportiva" => "Alimentação esportiva",
+                                                    "alimentacao-infantil" => "Nutrição infantil",
+                                                    "bem-estar" => "Bem-estar",
+                                                    "curiosidades" => "Curiosidades sobre alimentos",
+                                                    "dicas" => "Dicas práticas",
+                                                    "educacao" => "Educação nutricional",
+                                                    "fitoterapia" => "Fitoterapia e chás medicinais",
+                                                    "ganho-de-massa" => "Ganho de massa",
+                                                    "hidratação" => "Hidratação",
+                                                    "perda-de-peso" => "Perda de peso",
+                                                    "planejamento" => "Planejamento de refeições",
+                                                    "receitas" => "Receitas",
+                                                    "saude-mental" => "Saúde mental",
+                                                    "suplementos" => "Suplementação alimentar"
+                                                    ];
+
+                                                    $category1_text = $categories_map[$post->category1] ?? $post->category1;
+                                                    $category2_text = $categories_map[$post->category2] ?? $post->category2;
+                                            ?>
+                                        <?php if(!empty($post->category1)) : ?>
+                                            <span class="category"><?= $categories_map[$post->category1] ?? $post->category1 ?></span>
+                                        <?php endif; ?>
+                                        <?php if(!empty($post->category2)) : ?>
+                                            <span class="category"><?= $categories_map[$post->category2] ?? $post->category2 ?></span>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
