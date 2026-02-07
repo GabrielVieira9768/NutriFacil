@@ -43,7 +43,10 @@
                     <img src="/<?= $post->image; ?>" class="card-img-top fixed-height-image" alt="Imagem do post">
                     <div class="card-body rounded d-flex flex-column justify-content-between">
                         <h5 class="card-title"><?php echo $post->title ?></h5>
-                        <p class="card-text"><?php echo $post->author; ?></p>
+                        <div class="d-flex justify-content-between author-date">
+                            <p class="text-body-secondary"><?= $post->author ?></p>
+                            <p class="text-body-secondary"><?= date('d/m/Y', strtotime($post->date)); ?></p>
+                        </div>
                         <!-- Outros conteúdos do post, se houver -->
                         <div class="d-flex flex-column align-items-center mt-auto">
                             <form method="post" action="post">
@@ -67,8 +70,9 @@
         <div class="d-flex justify-content-center m-5 secao-sobre">
             <div class="texto-sobre">
                 <h2 class="mb-4 titulo-sobre">O Projeto</h2>
-                <p>NutriFácil é uma plataforma dedicada a promover educação nutricional, fornecendo informações confiáveis sobre alimentação saudável e hábitos de vida equilibrados.</p>
-                <p>Nosso objetivo é ajudar cada indivíduo a compreender melhor a importância dos nutrientes, planejar refeições balanceadas e adotar um estilo de vida mais saudável, sempre com dicas práticas e acessíveis para o dia a dia.</p>
+                <p>NutriFácil é uma plataforma dedicada a promover educação nutricional, fornecendo informações confiáveis sobre alimentação saudável e hábitos de vida equilibrados. Nosso foco é tornar o conhecimento sobre nutrição acessível e aplicável para todos, independentemente do nível de experiência ou conhecimento prévio.</p>
+                <p>Nosso objetivo é ajudar cada indivíduo a compreender melhor a importância dos nutrientes, planejar refeições balanceadas e adotar um estilo de vida mais saudável, sempre com dicas práticas e acessíveis para o dia a dia. Acreditamos que pequenas mudanças nos hábitos alimentares podem ter um grande impacto na saúde e bem-estar a longo prazo.</p>
+                <p>Além de orientações nutricionais, a plataforma oferece conteúdos educativos, sugestões de cardápios, informações sobre alimentos e receitas adaptáveis, tudo pensado para facilitar a integração de hábitos saudáveis na rotina de cada pessoa. Nosso compromisso é empoderar os usuários com conhecimento, promovendo escolhas conscientes e sustentáveis, contribuindo para uma vida mais equilibrada e plena.</p>
             </div>
             <div class="slogan d-flex align-items-center">
                 <img style="max-width: 460px;" src="public/assets/sobre-image.png" alt="Logo da Game Over" class="rounded">

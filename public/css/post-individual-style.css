@@ -1,8 +1,10 @@
+/* ===== Estilos gerais do post ===== */
 body {
     background-color: #f1debd;
     font-family: "Noto Serif", serif;
 }
 
+/* ===== Título e conteúdo do post ===== */
 .post-title {
     font-weight: 600;
     font-size: 36px;
@@ -47,6 +49,7 @@ body {
 .fonte-rotulo {
     font-size: 14px;
     color: #333e50;
+    font-weight: 600;
 }
 
 .botao-expand {
@@ -75,6 +78,7 @@ body {
     border: none !important;
 }
 
+/* ===== Botão voltar ao topo ===== */
 .btn-topo {
     position: fixed;
     bottom: 30px;
@@ -102,4 +106,68 @@ body {
     width: 24px;
     height: 24px;
     fill: white;
+}
+
+.secao-publicacoes {
+    background-color: #fefefe;
+    padding: 0 0 16px 0;
+}
+
+.title-publicacoes {
+    color: #fff;
+    background-color: #333e50;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 32px;
+    width: 100%;
+    padding: 20px;
+}
+
+.secao-publicacoes .d-flex.flex-wrap {
+    justify-content: center;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.card-post {
+    border: none;
+    width: 24rem;
+    background-color: #333e50;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 24rem;
+}
+
+.card-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-height-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.span-text {
+    margin-left: 2px;
 }

@@ -71,9 +71,17 @@ class PostController
 
     public function indexUnique()
     {
-        $post = (object)App::get('database')->find('posts', $_POST['id']);
+        $postInd = (object) App::get('database')->find('posts', $_POST['id']);
 
-        return view('site/post-individual', compact('post'));
+        $allPosts = App::get('database')->selectAll('posts');
+
+        $recentPosts = array_filter($allPosts, function($post) use ($postInd) {
+            return $post->id != $postInd->id;
+        });
+
+        $recentPosts = array_slice($recentPosts, 0, 3);
+
+        return view('site/post-individual', compact('postInd', 'recentPosts'));
     }
 
     public function create()

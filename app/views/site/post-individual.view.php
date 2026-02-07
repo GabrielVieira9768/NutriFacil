@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NutriFácil - <?php echo $post->title ?></title>
+    <title>NutriFácil - <?php echo $postInd->title ?></title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/post-individual-style.css">
@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-md-7">
 
-                    <h2 class="text-left post-title"><?php echo $post->title ?></h2>
-                    <p class="card-text author-date text-body-secondary"><?php echo $post->summary ?></p>
+                    <h2 class="text-left post-title"><?php echo $postInd->title ?></h2>
+                    <p class="card-text author-date text-body-secondary"><?php echo $postInd->summary ?></p>
 
                     <?php
                     // Mapeamento para mostrar categorias amigáveis
@@ -50,26 +50,26 @@
                         "suplementos" => "Suplementação alimentar"
                     ];
 
-                    $category1_text = $categories_map[$post->category1] ?? $post->category1;
-                    $category2_text = $categories_map[$post->category2] ?? $post->category2;
+                    $category1_text = $categories_map[$postInd->category1] ?? $postInd->category1;
+                    $category2_text = $categories_map[$postInd->category2] ?? $postInd->category2;
                     ?>
 
                     <div class="post-info d-flex justify-content-between align-items-center mb-3">
                         <div class="author-date">
-                            <small class="text-body-secondary"><?= $post->author ?> - <?= date('d/m/Y', strtotime($post->date)); ?></small>
+                            <small class="text-body-secondary"><?= $postInd->author ?> - <?= date('d/m/Y', strtotime($postInd->date)); ?></small>
                         </div>
                         <div class="categories d-flex gap-2">
-                            <?php if(!empty($post->category1)) : ?>
+                            <?php if(!empty($postInd->category1)) : ?>
                                 <span class="category"><?= $category1_text ?></span>
                             <?php endif; ?>
-                            <?php if(!empty($post->category2)) : ?>
+                            <?php if(!empty($postInd->category2)) : ?>
                                 <span class="category"><?= $category2_text ?></span>
                             <?php endif; ?>
                         </div>
                     </div>
 
                     <?php
-                    $linhas = explode("\n", $post->content);
+                    $linhas = explode("\n", $postInd->content);
 
                     foreach ($linhas as $linha) {
                         $linha = trim($linha);
@@ -83,8 +83,8 @@
 
                 <div class="col-md-5 d-flex justify-content-end mb-2">
                     <div class="image-container position-relative">
-                        <img src="/<?= $post->image; ?>" class="img-fluid rounded" alt="<?= $post->image_alt ?>">
-                        <p class="fonte-rotulo my-1 mx-2">Fonte: <?= $post->image_source ?></p>
+                        <img src="/<?= $postInd->image; ?>" class="img-fluid rounded" alt="<?= $postInd->image_alt ?>">
+                        <p class="fonte-rotulo my-1 mx-2">Fonte: <?= $postInd->image_source ?></p>
                         <button class="btn position-absolute top-0 end-0 mt-2 me-2 botao-expand" title="Expandir Imagem" data-bs-toggle="modal" data-bs-target="#modal-expand">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="white">
                                 <path d="M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z" />
@@ -103,6 +103,33 @@
             <path d="M342.6 81.4C330.1 68.9 309.8 68.9 297.3 81.4L137.3 241.4C124.8 253.9 124.8 274.2 137.3 286.7C149.8 299.2 170.1 299.2 182.6 286.7L288 181.3L288 552C288 569.7 302.3 584 320 584C337.7 584 352 569.7 352 552L352 181.3L457.4 286.7C469.9 299.2 490.2 299.2 502.7 286.7C515.2 274.2 515.2 253.9 502.7 241.4L342.7 81.4z"/>
         </svg>
     </button>
+
+<div class="secao-publicacoes">
+    <div class="d-flex justify-content-center">
+        <h2 class="title-publicacoes">Confira Também</h2>
+    </div>
+    <div class="d-flex justify-content-center flex-wrap mx-4">
+        <?php foreach ($recentPosts as $recent_post) : ?>
+            <form method="post" action="post" class="card-form" style="margin: 0; cursor: pointer;">
+                <input type="hidden" name="id" value="<?= $recent_post->id ?>">
+                <div class="card mx-3 mb-3 card-post" onclick="this.closest('form').submit()">
+                    <img src="/<?= $recent_post->image; ?>" class="card-img-top fixed-height-image" alt="Imagem do post">
+                    <div class="card-body rounded d-flex flex-column justify-content-between">
+                        <h5 class="card-title"><?= $recent_post->title ?></h5>
+                        <div class="d-flex justify-content-end categories">
+                            <?php if(!empty($recent_post->category1)) : ?>
+                                <span class="category"><?= $categories_map[$recent_post->category1] ?? $recent_post->category1 ?></span>
+                            <?php endif; ?>
+                            <?php if(!empty($recent_post->category2)) : ?>
+                                <span class="category"><?= $categories_map[$recent_post->category2] ?? $recent_post->category2 ?></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <?php endforeach; ?>
+    </div>
+</div>
 
     <?php require('app/views/components/footer.php'); ?>
 
@@ -123,5 +150,24 @@
     btnTopo.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+</script>
+
+<script>
+    function ajustarAlturaCards() {
+        const cards = document.querySelectorAll('.card-post');
+        let alturaMaxima = 0;
+
+        cards.forEach(card => {
+            card.style.height = 'auto'; // Reset para recalcular
+            if(card.offsetHeight > alturaMaxima) alturaMaxima = card.offsetHeight;
+        });
+
+        cards.forEach(card => {
+            card.style.height = alturaMaxima + 'px';
+        });
+    }
+
+    window.addEventListener('load', ajustarAlturaCards);
+    window.addEventListener('resize', ajustarAlturaCards);
 </script>
 </html>
