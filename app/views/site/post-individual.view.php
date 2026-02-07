@@ -24,8 +24,12 @@
         <div class="">
             <div>
                 <h2 class="text-left post-title"><?php echo $post->title ?></h2>
-                <p class="card-text author-date"><small class="text-body-secondary"><?php echo $post->author ?> - <?php echo date('d/m/Y', strtotime($post->date)); ?></small></p>
-
+                <p class="card-text author-date"><small class="text-body-secondary"><?php echo $post->summary ?></small></p>
+                <div>
+                    <p class="card-text author-date"><small class="text-body-secondary"><?php echo $post->author ?> - <?php echo date('d/m/Y', strtotime($post->date)); ?></small></p>
+                    <p class="category"><?= $post->category1 ?></p>
+                    <p class="category"><?= $post->category2 ?></p>
+                </div>
                 <div class="text-container">
                     <div class="row">
                         <div class="col-md-7">
@@ -42,7 +46,8 @@
                         </div>
                         <div class="col-md-5 d-flex justify-content-end mb-2">
                             <div class="image-container position-relative">
-                                <img src="/<?= $post->image; ?>" class="img-fluid rounded" alt="Imagem do post">
+                                <img src="/<?= $post->image; ?>" class="img-fluid rounded" alt="<?= $post->image_alt ?>">
+                                <p class="fonte-rotulo my-1 mx-2">Fonte: <?= $post->image_source ?></p>
                                 <button class="btn position-absolute top-0 end-0 mt-2 me-2 botao-expand" title="Expandir Imagem" data-bs-toggle="modal" data-bs-target="#modal-expand">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="white">
                                         <path d="M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z" />

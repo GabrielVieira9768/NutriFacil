@@ -20,6 +20,10 @@ body {
     width: 480px;
 }
 
+.category {
+    background-color: #95d9eb;
+}
+
 /* Modal de Expansão */
 .modal-content {
     background-color: #333e50;
