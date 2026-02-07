@@ -96,15 +96,8 @@
             </div>
 
             <div class="modal-footer"> 
-                    <button type="button" class="btn modal-botao" data-bs-dismiss="modal" title="Fechar modal">
-                        Fechar
-                    </button>
-
-                    <a href="/post/<?php echo $post->id; ?>"
-                    class="btn modal-botao"
-                    title="Acessar postagem completa">
-                        Visualizar
-                    </a>
+                <button type="button" class="btn modal-botao" data-bs-dismiss="modal" title="Fechar modal">Fechar</button>
+                <a href="/post/<?php echo $post->id; ?>" class="btn modal-botao" title="Acessar postagem completa">Visualizar</a>
             </div>
 
         </div>
