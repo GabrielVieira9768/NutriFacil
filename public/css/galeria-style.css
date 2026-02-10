@@ -44,7 +44,6 @@ input[type="search"]::-webkit-search-results-decoration {
     overflow: visible;
 }
 
-/* Remove estilo padrão de link dentro do card */
 .card-post,
 .card-post a {
     color: white !important;
@@ -78,7 +77,6 @@ input[type="search"]::-webkit-search-results-decoration {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Fundo escuro garantido */
 .card-post .card-body {
     flex-grow: 1;
     background-color: #333e50 !important;
@@ -94,8 +92,6 @@ input[type="search"]::-webkit-search-results-decoration {
 .card-post .card-body span {
     color: #ffffff !important;
 }
-
-/* Correção final da cor do título */
 
 .card-post .card .card-body .card-title {
     color: #ffffff !important;
@@ -135,4 +131,67 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: 14px;
     color: #fff !important;
     font-weight: 600;
+}
+
+.filter-box {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+.filter-checkbox {
+    display: none;
+}
+
+.filter-label {
+    background-color: #fa9c4f;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-checkbox:checked + .filter-label {
+    background-color: #333e50;
+    transform: scale(1.03);
+}
+
+.filter-label:hover {
+    opacity: 0.85;
+}
+
+.botao-fechar:focus {
+    border: none !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #333e50;
+}
+
+.modal-botao {
+    background-color: #d1d6da;
+    color: black;
+}
+
+.modal-botao:hover {
+    background-color: #acb2b6;
+    color: black;
+}
+
+.modal-botao:active {
+    background-color: #acb2b6 !important;
+    border: none !important;
+    color: black !important;
+}
+
+.modal-header {
+    background-color: #333e50;
+    color: white;
+}
+
+.modal-footer {
+    background-color: #333e50;
 }

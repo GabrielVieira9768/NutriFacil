@@ -224,17 +224,52 @@ class PostController
 
     public function searchPosts()
     {
-        $pesquisa = filter_input(INPUT_GET, 'search');
+        $pesquisa = trim(filter_input(INPUT_GET, 'search'));
+        $categorias = $_GET['categorias'] ?? [];
 
-        $postsByTitle = App::get('database')->busca('posts', $pesquisa, 'title');
-        $postsByAuthor = App::get('database')->busca('posts', $pesquisa, 'author');
-        $postsByCategory1 = App::get('database')->busca('posts', $pesquisa, 'category1');
-        $postsByCategory2 = App::get('database')->busca('posts', $pesquisa, 'category2');
+        $normalizar = function ($texto) {
+            $texto = strtolower($texto);
+            return iconv('UTF-8', 'ASCII//TRANSLIT', $texto);
+        };
 
-        $posts = array_unique(
-            array_merge($postsByTitle, $postsByAuthor, $postsByCategory1, $postsByCategory2),
-            SORT_REGULAR
-        );
+        $posts = App::get('database')->selectAll('posts');
+
+        $posts = array_filter($posts, function ($post) use ($pesquisa, $categorias, $normalizar) {
+
+            $matchPesquisa = true;
+            $matchCategoria = true;
+
+            if (!empty($pesquisa)) {
+
+                $textoBusca = $normalizar($pesquisa);
+
+                $campos = [
+                    $post->title,
+                    $post->author
+                ];
+
+                $matchPesquisa = false;
+
+                foreach ($campos as $campo) {
+                    if (str_contains($normalizar($campo), $textoBusca)) {
+                        $matchPesquisa = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!empty($categorias)) {
+
+                $categoriasPost = [
+                    $post->category1,
+                    $post->category2
+                ];
+
+                $matchCategoria = count(array_intersect($categorias, $categoriasPost)) > 0;
+            }
+
+            return $matchPesquisa && $matchCategoria;
+        });
 
         usort($posts, fn($a, $b) => strtotime($b->date) - strtotime($a->date));
 
@@ -242,6 +277,7 @@ class PostController
 
         return view("site/galeria", compact('posts', 'pagination'));
     }
+
 }
 
 ?>

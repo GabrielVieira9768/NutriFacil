@@ -1,5 +1,5 @@
-<nav aria-label="Page navigation" class="d-flex justify-content-center">
-    <ul class="pagination">
+<nav aria-label="Page navigation" class="d-flex justify-content-center mb-4">
+    <ul class="pagination mb-4">
         <li class="page-item <?= $page <= 1 ? "disabled" : "" ?>">
             <a class="page-link" href="?pagina=<?= $page - 1 ?>" aria-label="Previous" title="Página anterior">
                 <span aria-hidden="true">&laquo;</span>
