@@ -84,11 +84,111 @@ class UserController
 
     public function indexDashboard()
     {
-        $users = App::get('database')->selectAll('users');
-        $posts = App::get('database')->selectAll('posts');
+        $db = App::get('database');
 
-        return view("admin/dashboard", compact('users', 'posts'));
+        try {
+
+            $categories_map = [
+                "actividade-fisica" => "Atividade física",
+                "alimentacao" => "Alimentação saudável",
+                "alimentacao-esportiva" => "Alimentação esportiva",
+                "alimentacao-infantil" => "Nutrição infantil",
+                "bem-estar" => "Bem-estar",
+                "curiosidades" => "Curiosidades",
+                "dicas" => "Dicas práticas",
+                "educacao" => "Educação nutricional",
+                "fitoterapia" => "Fitoterapia",
+                "ganho-de-massa" => "Ganho de massa",
+                "hidratação" => "Hidratação",
+                "perda-de-peso" => "Perda de peso",
+                "planejamento" => "Planejamento",
+                "receitas" => "Receitas",
+                "saude-mental" => "Saúde mental",
+                "suplementos" => "Suplementos"
+            ];
+
+            $rawCategories = $db->raw("
+                SELECT categoria, COUNT(*) AS total
+                FROM (
+                    SELECT category1 AS categoria FROM posts
+                    WHERE category1 IS NOT NULL AND category1 != ''
+
+                    UNION ALL
+
+                    SELECT category2 FROM posts
+                    WHERE category2 IS NOT NULL AND category2 != ''
+                ) AS categorias
+                GROUP BY categoria
+            ");
+
+            $categoryCounts = [];
+
+            foreach ($rawCategories as $cat) {
+                $categoryCounts[$cat->categoria] = (int) $cat->total;
+            }
+
+            foreach ($categories_map as $slug => $name) {
+                if (!isset($categoryCounts[$slug])) {
+                    $categoryCounts[$slug] = 0;
+                }
+            }
+
+            arsort($categoryCounts);
+            $topCategories = array_slice($categoryCounts, 0, 3, true);
+
+            asort($categoryCounts);
+            $lowCategories = array_slice($categoryCounts, 0, 3, true);
+
+            $topCategories = array_map(function ($slug, $total) {
+                return (object)[
+                    'categoria' => $slug,
+                    'total' => $total
+                ];
+            }, array_keys($topCategories), $topCategories);
+
+            $lowCategories = array_map(function ($slug, $total) {
+                return (object)[
+                    'categoria' => $slug,
+                    'total' => $total
+                ];
+            }, array_keys($lowCategories), $lowCategories);
+
+            $lastMonth = $db->raw("
+                SELECT COUNT(*) AS total
+                FROM posts
+                WHERE date >= DATE_SUB(NOW(), INTERVAL 1 MONTH)
+            ");
+
+            $lastMonthPosts = $lastMonth[0]->total ?? 0;
+
+            $topUsers = $db->raw("
+                SELECT author, COUNT(*) AS total
+                FROM posts
+                GROUP BY author
+                ORDER BY total DESC
+                LIMIT 3
+            ");
+
+            $users = $db->selectAll('users');
+            $posts = $db->selectAll('posts');
+
+            return view(
+                'admin/area-administrativa',
+                compact(
+                    'users',
+                    'posts',
+                    'topCategories',
+                    'lowCategories',
+                    'lastMonthPosts',
+                    'topUsers'
+                )
+            );
+
+        } catch (Exception $e) {
+            die("Erro ao carregar dashboard: " . $e->getMessage());
+        }
     }
+
 }
 
 ?>

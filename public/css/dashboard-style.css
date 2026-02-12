@@ -13,7 +13,7 @@ body {
     background-color: #fff;
 }
 
-.titulo-posts {
+.titulo-posts, .titulo-geral {
     font-weight: 600;
     color: #fff;
     background-color: #333e50;
@@ -26,11 +26,45 @@ body {
 }
 
 .info-body {
-    background-color: #f1debd;
+    background-color: #fff;
+    gap: 40px;
+    padding: 32px !important;
+}
+
+.info-box {
+    background-color: #333e50;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-box h4 {
+    margin-bottom: 10px;
+}
+
+.info-number {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.info-box hr {
+    border: none;
+    border-top: 1px solid #fa9c4f !important;
+    margin: 0.5rem 0;
+    opacity: 1;
 }
 
 .posts-body {
-    padding: 32px 0 32px 0;
+    padding: 32px 0;
+    background-color: #f1debd;
+}
+
+.post-card {
+    width: 18rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .card-body {
@@ -39,29 +73,40 @@ body {
     border-radius: 0 0 4px 4px;
 }
 
+.dashboard-card {
+    width: 16rem;
+}
+
 .fixed-height-image {
     height: 200px;
-    width: auto;
+    width: 100%;
     object-fit: cover;
 }
 
 .botao-posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
     background-color: #d1d6da;
     color: black;
+    border: none;
+    outline: none;
+    text-decoration: none;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .botao-posts:hover {
     background-color: #acb2b6;
     color: black;
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
-.botao-posts:active {
-    background-color: #d1d6da;
+.botao-posts:active,
+.botao-posts:focus {
+    background-color: #d1d6da !important;
+    color: black !important;
     transform: scale(1);
-}
-
-.span-text {
-    margin-left: 2px;
+    box-shadow: none;
 }

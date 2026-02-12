@@ -277,6 +277,73 @@ class PostController
         return view("site/galeria", compact('posts', 'pagination'));
     }
 
+    public function dashboard()
+    {
+        $db = App::get('database');
+
+        try {
+
+            $topCategories = $db->raw("
+                SELECT categoria, COUNT(*) AS total
+                FROM (
+                    SELECT category1 AS categoria FROM posts
+                    UNION ALL
+                    SELECT category2 FROM posts WHERE category2 IS NOT NULL
+                ) AS categorias
+                GROUP BY categoria
+                ORDER BY total DESC
+                LIMIT 5
+            ");
+
+            $lowCategories = $db->raw("
+                SELECT categoria, COUNT(*) AS total
+                FROM (
+                    SELECT category1 AS categoria FROM posts
+                    UNION ALL
+                    SELECT category2 FROM posts WHERE category2 IS NOT NULL
+                ) AS categorias
+                GROUP BY categoria
+                ORDER BY total ASC
+                LIMIT 5
+            ");
+
+            $lastMonth = $db->raw("
+                SELECT COUNT(*) AS total
+                FROM posts
+                WHERE date >= DATE_SUB(NOW(), INTERVAL 1 MONTH)
+            ");
+
+            $lastMonthPosts = $lastMonth[0]->total ?? 0;
+
+            $topUsers = $db->raw("
+                SELECT author, COUNT(*) AS total
+                FROM posts
+                GROUP BY author
+                ORDER BY total DESC
+                LIMIT 3
+            ");
+
+            $users = $db->selectAll('users');
+            $posts = $db->selectAll('posts');
+
+            return view(
+                'admin/dashboard',
+                compact(
+                    'users',
+                    'posts',
+                    'topCategories',
+                    'lowCategories',
+                    'lastMonthPosts',
+                    'topUsers'
+                )
+            );
+
+        } catch (Exception $e) {
+
+            die("Erro ao carregar dashboard: " . $e->getMessage());
+        }
+    }
+
 }
 
 ?>
