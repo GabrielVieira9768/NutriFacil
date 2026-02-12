@@ -64,7 +64,7 @@ body {
 .botao-index:hover {
     background-color: #3f4c61;
     color: white !important;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .botao-index:active {
