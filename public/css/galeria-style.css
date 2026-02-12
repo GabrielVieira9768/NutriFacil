@@ -80,6 +80,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .card-post .card-body {
     flex-grow: 1;
     background-color: #333e50 !important;
+    border-radius: 0px 0.35rem 0.35rem 0;
 }
 
 .card-post .card-body .card-title {

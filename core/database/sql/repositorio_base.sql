@@ -1,20 +1,34 @@
--- phpMyAdmin SQL Dump - NutriFácil
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 12/02/2026 às 13:59
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "-03:00";
+SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `repositorio_base`;
-USE `repositorio_base`;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `repositorio_base`
+--
 
 -- --------------------------------------------------------
--- Tabela posts (ATUALIZADA)
--- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `posts`;
+--
+-- Estrutura para tabela `posts`
+--
 
 CREATE TABLE `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `summary` text NOT NULL,
   `category1` varchar(100) NOT NULL,
@@ -24,154 +38,46 @@ CREATE TABLE `posts` (
   `image_source` varchar(255) DEFAULT NULL,
   `content` text NOT NULL,
   `author` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `posts`
-(`id`, `title`, `summary`, `category1`, `category2`, `image`, `image_alt`, `image_source`, `content`, `author`, `date`)
-VALUES
+--
+-- Despejando dados para a tabela `posts`
+--
 
-(1,
-'Alimentação Saudável no Dia a Dia',
-'Dicas práticas para manter uma alimentação equilibrada na rotina.',
-'alimentacao',
-'dicas',
-'public/img/667c34756aa6b.jpeg',
-'Prato equilibrado com alimentos naturais',
-'Banco de imagens',
-'Manter uma alimentação saudável no dia a dia é um dos pilares para garantir qualidade de vida e bem-estar. Uma dieta equilibrada deve incluir variedade de alimentos naturais como frutas, legumes, verduras, proteínas e grãos integrais. Evitar ultraprocessados e planejar refeições ajuda a manter energia e saúde.',
-'José Pereira Santos',
-'2024-06-04'),
-
-(2,
-'A Importância das Proteínas',
-'Entenda o papel das proteínas no corpo humano.',
-'alimentacao',
-'educacao',
-'public/img/667c352595c75.jpeg',
-'Alimentos ricos em proteína',
-'Banco de imagens',
-'As proteínas são essenciais para a construção muscular e reparação dos tecidos. Fontes incluem carnes magras, ovos, leguminosas e laticínios. Variar o consumo garante melhor aproveitamento nutricional.',
-'Débora Ribeiro Nunes',
-'2024-06-07'),
-
-(3,
-'Vitaminas Essenciais para o Corpo',
-'Como as vitaminas contribuem para a saúde.',
-'educacao',
-NULL,
-'public/img/667c355b5e33c.jpeg',
-'Alimentos ricos em vitaminas',
-'Banco de imagens',
-'Vitaminas são fundamentais para o sistema imunológico e produção de energia. Frutas e vegetais coloridos são as melhores fontes naturais desses micronutrientes.',
-'Sara Mendes Garcia',
-'2024-06-07'),
-
-(4,
-'A Importância da Hidratação',
-'Por que beber água é essencial.',
-'bem-estar',
-NULL,
-'public/img/667c359f31dc9.jpeg',
-'Copo de água com frutas',
-'Banco de imagens',
-'A hidratação regula funções vitais do corpo, melhora concentração e desempenho físico. Beber água ao longo do dia é um hábito indispensável.',
-'Débora Ribeiro Nunes',
-'2024-06-08'),
-
-(5,
-'Fibras e Saúde Digestiva',
-'Benefícios das fibras na alimentação.',
-'alimentacao',
-'educacao',
-'public/img/667c35f47dd8c.jpeg',
-'Alimentos ricos em fibras',
-'Banco de imagens',
-'As fibras ajudam o funcionamento intestinal e controlam colesterol e glicose. Alimentos integrais e vegetais são fontes importantes.',
-'Cristiano Matos Cardoso',
-'2024-06-14'),
-
-(6,
-'Carboidratos: Vilões ou Aliados?',
-'Entenda o papel dos carboidratos.',
-'alimentacao',
-'educacao',
-'public/img/667c3630cf30a.jpeg',
-'Alimentos fonte de carboidratos',
-'Banco de imagens',
-'Carboidratos fornecem energia ao corpo. Priorizar versões integrais garante melhor controle glicêmico.',
-'Jonas Espíndola',
-'2024-06-16'),
-
-(7,
-'Gorduras Boas para a Saúde',
-'Saiba quais gorduras são benéficas.',
-'alimentacao',
-'bem-estar',
-'public/img/667c368675180.jpeg',
-'Alimentos com gorduras saudáveis',
-'Banco de imagens',
-'Gorduras boas ajudam na saúde cardiovascular. Azeite, abacate e castanhas são ótimas fontes.',
-'Cristiano Matos Cardoso',
-'2024-06-21'),
-
-(8,
-'Planejamento Alimentar Sem Complicação',
-'Como organizar refeições da semana.',
-'dicas',
-'bem-estar',
-'public/img/667c36b77208e.jpeg',
-'Pessoa organizando refeições',
-'Banco de imagens',
-'O planejamento alimentar facilita escolhas saudáveis, economiza tempo e reduz impulsividade alimentar.',
-'Vanessa Soares',
-'2024-06-21'),
-
-(9,
-'Como Ler Rótulos de Alimentos',
-'Guia para interpretar rótulos nutricionais.',
-'educacao',
-'dicas',
-'public/img/667c370b98f8d.jpeg',
-'Pessoa lendo rótulo nutricional',
-'Banco de imagens',
-'Ler rótulos ajuda a escolher alimentos mais saudáveis observando ingredientes, sódio e açúcar.',
-'Débora Ribeiro Nunes',
-'2024-06-26'),
-
-(10,
-'A Relação Entre Alimentação e Energia',
-'Como a dieta influencia sua disposição.',
-'bem-estar',
-'alimentacao',
-'public/img/667c372aa1f3e.jpeg',
-'Refeição saudável balanceada',
-'Banco de imagens',
-'Uma alimentação equilibrada mantém níveis estáveis de energia e melhora produtividade.',
-'Carlos Miguel Oliveira',
-'2024-06-26');
+INSERT INTO `posts` (`id`, `title`, `summary`, `category1`, `category2`, `image`, `image_alt`, `image_source`, `content`, `author`, `date`) VALUES
+(1, 'Alimentação Saudável no Dia a Dia', 'Dicas práticas para manter uma alimentação equilibrada na rotina.', 'alimentacao', 'dicas', 'public/img/698dcbc2a87bf.png', 'Alimentos naturais e um estetoscópio', 'Pague Menos', 'Manter uma alimentação saudável no dia a dia é um dos principais pilares para promover qualidade de vida, prevenir doenças e garantir mais disposição para as atividades cotidianas. Em meio à correria da rotina, muitas pessoas acabam recorrendo a alimentos ultraprocessados e refeições rápidas, que nem sempre oferecem os nutrientes necessários para o bom funcionamento do organismo. Por isso, desenvolver hábitos alimentares equilibrados é um investimento direto na saúde a curto e longo prazo.\r\n\r\nUma dieta saudável deve ser baseada na variedade e no equilíbrio entre os grupos alimentares. Frutas, legumes e verduras fornecem vitaminas, minerais e fibras essenciais, enquanto proteínas de qualidade contribuem para a manutenção dos tecidos e da massa muscular. Os grãos integrais oferecem energia de forma gradual, ajudando a manter a saciedade e o controle dos níveis de glicose no sangue. Quanto mais colorido e diversificado for o prato, maiores serão os benefícios nutricionais.\r\n\r\nOutro ponto importante é reduzir o consumo de alimentos ultraprocessados, ricos em açúcares, gorduras e sódio. Priorizar preparações caseiras permite maior controle sobre os ingredientes e favorece escolhas mais naturais. Planejar as refeições da semana e manter lanches saudáveis à disposição são estratégias eficazes para evitar decisões impulsivas e manter a consistência nos hábitos alimentares.\r\n\r\nA hidratação também faz parte de uma rotina saudável. Beber água ao longo do dia auxilia no funcionamento do metabolismo, melhora a digestão e contribui para o desempenho físico e mental. Pequenas atitudes, como organizar horários para as refeições e comer com atenção, sem distrações, ajudam a criar uma relação mais consciente com a comida.\r\n\r\nAdotar uma alimentação equilibrada não significa seguir dietas restritivas, mas sim construir um padrão alimentar sustentável e prazeroso. Com escolhas consistentes e planejamento, é possível transformar a alimentação em uma aliada da saúde, garantindo mais energia, bem-estar e qualidade de vida todos os dias.', 'José Pereira Santos', '2026-01-28'),
+(2, 'A Importância das Proteínas', 'Entenda o papel das proteínas no corpo humano.', 'alimentacao', 'educacao', 'public/img/698dcb2a1462f.png', 'Alimentos ricos em proteína compondo um braço humano', 'CNN Brasil', 'As proteínas são nutrientes essenciais para o funcionamento do corpo humano e desempenham um papel central na construção e na manutenção dos tecidos. Elas participam da formação de músculos, pele, cabelos, unhas e órgãos, além de estarem envolvidas na produção de enzimas, hormônios e anticorpos. Sem uma ingestão adequada de proteínas, o organismo pode ter dificuldades para se recuperar, crescer e manter suas funções vitais.\r\n\r\nUm dos papéis mais conhecidos das proteínas é a reparação e o desenvolvimento muscular. Durante atividades físicas, especialmente exercícios de força, ocorrem pequenas lesões nas fibras musculares que precisam ser reparadas. As proteínas fornecem os aminoácidos necessários para esse processo, contribuindo para a recuperação e o fortalecimento dos músculos. Além disso, elas ajudam a promover maior sensação de saciedade, o que pode auxiliar no controle do apetite.\r\n\r\nAs proteínas podem ser encontradas em diversas fontes alimentares. Carnes magras, ovos, peixes, leite e derivados são exemplos de proteínas de origem animal, geralmente consideradas completas por conterem todos os aminoácidos essenciais. Já as proteínas de origem vegetal, presentes em leguminosas como feijão, lentilha e grão-de-bico, além de oleaginosas e cereais integrais, também são importantes e podem ser combinadas para formar refeições nutricionalmente equilibradas.\r\n\r\nVariar as fontes de proteína ao longo da semana é uma estratégia recomendada para garantir um melhor aproveitamento nutricional e uma alimentação mais diversificada. O consumo adequado deve ser ajustado de acordo com a idade, o nível de atividade física e as necessidades individuais. Em vez de focar apenas na quantidade, é importante priorizar a qualidade das fontes escolhidas.\r\n\r\nIncluir proteínas de forma equilibrada nas refeições contribui para a manutenção da massa muscular, o bom funcionamento do metabolismo e a saúde geral do organismo. Com escolhas alimentares conscientes e variadas, é possível atender às necessidades do corpo e promover mais energia, vitalidade e bem-estar no dia a dia.', 'Débora Ribeiro Nunes', '2026-02-02'),
+(3, 'Vitaminas Essenciais para o Corpo', 'Como as vitaminas contribuem para a saúde.', 'educacao', '', 'public/img/698dcaa4d4012.png', 'Símbolos de vitaminas e sais minerais', 'Dietpro', 'As vitaminas são micronutrientes essenciais para o funcionamento adequado do organismo e desempenham um papel fundamental na manutenção da saúde. Mesmo sendo necessárias em pequenas quantidades, elas participam de processos vitais como a produção de energia, o fortalecimento do sistema imunológico, a saúde da pele e a proteção das células contra danos. Uma alimentação variada e equilibrada é a melhor forma de garantir o consumo adequado dessas substâncias.\r\n\r\nCada vitamina exerce funções específicas no corpo. A vitamina C, por exemplo, contribui para a imunidade e auxilia na absorção de ferro. As vitaminas do complexo B participam do metabolismo energético e do funcionamento do sistema nervoso. Já a vitamina D é importante para a saúde óssea, enquanto a vitamina A está relacionada à visão e à integridade da pele. Consumir diferentes grupos de alimentos é essencial para obter esse conjunto de nutrientes.\r\n\r\nFrutas e vegetais coloridos são algumas das principais fontes naturais de vitaminas. Quanto mais variado for o prato em cores, maior tende a ser a diversidade de micronutrientes ingeridos. Alimentos frescos e minimamente processados preservam melhor o valor nutricional e contribuem para uma dieta mais rica em vitaminas. Em alguns casos específicos, a suplementação pode ser indicada por profissionais de saúde, mas não substitui uma alimentação equilibrada.\r\n\r\nA deficiência de vitaminas pode causar sintomas como cansaço, baixa imunidade e alterações no funcionamento do organismo. Por isso, manter hábitos alimentares saudáveis é essencial para prevenir carências nutricionais e promover o bem-estar a longo prazo. Investir em uma dieta rica em alimentos naturais é uma forma eficaz de cuidar do corpo e garantir que ele receba os nutrientes necessários para funcionar plenamente.', 'Sara Mendes Garcia', '2026-02-07'),
+(4, 'A Importância da Hidratação', 'Por que beber água é essencial.', 'hidratação', 'bem-estar', 'public/img/698dca1be1e64.png', 'Pessoa bebendo água de uma garrafa', 'Flowing Blog', 'Manter o corpo bem hidratado é um dos hábitos mais simples e importantes para a saúde. A água participa de praticamente todas as funções vitais do organismo, desde a regulação da temperatura corporal até o transporte de nutrientes e a eliminação de toxinas. Mesmo pequenas perdas de líquidos podem afetar o funcionamento do corpo, causando cansaço, dor de cabeça, queda de concentração e redução do desempenho físico.\r\n\r\nA hidratação adequada é essencial para o bom funcionamento do cérebro e dos músculos. Quando o corpo está desidratado, a capacidade de atenção e raciocínio pode diminuir, impactando a produtividade nas atividades diárias. Durante a prática de exercícios físicos, a água também desempenha um papel fundamental na manutenção da energia e na prevenção de cãibras e fadiga precoce.\r\n\r\nAlém disso, beber água regularmente contribui para a saúde digestiva, ajuda no funcionamento dos rins e favorece a circulação sanguínea. Muitas vezes, a sensação de fome pode ser confundida com sede, o que reforça a importância de manter uma ingestão constante de líquidos ao longo do dia. Criar o hábito de carregar uma garrafa de água e estabelecer lembretes pode facilitar esse cuidado diário.\r\n\r\nEmbora as necessidades de hidratação variem de acordo com a idade, o nível de atividade física e o clima, uma boa orientação é beber água de forma distribuída ao longo do dia, sem esperar sentir sede. Frutas ricas em água e bebidas naturais sem açúcar também podem complementar a hidratação, mas a água pura deve ser a principal fonte.\r\n\r\nAdotar uma rotina de hidratação adequada é um passo fundamental para melhorar a disposição, o desempenho físico e o bem-estar geral. Pequenos gestos, como beber um copo de água ao acordar e manter o consumo regular durante o dia, podem gerar benefícios significativos para a saúde a curto e longo prazo.', 'Débora Ribeiro Nunes', '2026-02-05'),
+(5, 'Fibras e Saúde Digestiva', 'Benefícios das fibras na alimentação.', 'alimentacao', 'educacao', 'public/img/698dc990d192d.png', 'Alimentos ricos em fibras', 'Nutrientes Para a Vida', 'As fibras alimentares são componentes fundamentais para uma alimentação equilibrada e exercem um papel essencial na manutenção da saúde digestiva e metabólica. Encontradas principalmente em alimentos de origem vegetal, como frutas, verduras, legumes, cereais integrais, sementes e leguminosas, as fibras não são totalmente digeridas pelo organismo, mas isso não significa que sejam menos importantes. Pelo contrário: elas participam ativamente de diversos processos que contribuem para o bom funcionamento do corpo.\r\n\r\nUm dos benefícios mais conhecidos das fibras é a melhora do trânsito intestinal. Elas aumentam o volume do bolo fecal e facilitam sua eliminação, ajudando a prevenir a constipação e promovendo um intestino mais saudável. Além disso, as fibras alimentam as bactérias benéficas da microbiota intestinal, favorecendo o equilíbrio da flora e fortalecendo o sistema imunológico. Um intestino saudável está diretamente relacionado a uma melhor absorção de nutrientes e ao bem-estar geral.\r\n\r\nAs fibras também têm um papel importante no controle dos níveis de glicose e colesterol no sangue. As fibras solúveis, presentes em alimentos como aveia, maçã e leguminosas, formam um gel no sistema digestivo que retarda a absorção de açúcares e gorduras. Esse processo ajuda a evitar picos glicêmicos e contribui para a redução do colesterol LDL, conhecido como colesterol “ruim”. Já as fibras insolúveis, encontradas em grãos integrais e vegetais, auxiliam principalmente no funcionamento intestinal e na sensação de saciedade.\r\n\r\nOutro ponto relevante é a contribuição das fibras para o controle do peso corporal. Alimentos ricos em fibras exigem mais mastigação e promovem maior sensação de saciedade, o que pode ajudar a reduzir o consumo excessivo de calorias ao longo do dia. Além disso, dietas ricas em fibras estão associadas à menor incidência de doenças crônicas, como diabetes tipo 2, obesidade e doenças cardiovasculares.\r\n\r\nPara aumentar a ingestão de fibras, é recomendável substituir alimentos refinados por versões integrais, incluir saladas e legumes nas principais refeições e consumir frutas regularmente, de preferência com casca quando possível. Também é importante variar as fontes de fibras para garantir um bom equilíbrio entre os diferentes tipos. No entanto, o aumento do consumo deve ser feito de forma gradual e sempre acompanhado de uma ingestão adequada de água, pois a hidratação é essencial para que as fibras desempenhem suas funções corretamente.\r\n\r\nAdotar uma alimentação rica em fibras é uma estratégia simples, acessível e eficaz para promover a saúde digestiva e metabólica. Com pequenas mudanças na rotina alimentar, é possível obter benefícios significativos a longo prazo, melhorando a qualidade de vida, aumentando a disposição e contribuindo para um organismo mais equilibrado e saudável.', 'Cristiano Matos Cardoso', '2026-02-07'),
+(6, 'Carboidratos: Vilões ou Aliados?', 'Entenda o papel dos carboidratos.', 'alimentacao', 'educacao', 'public/img/698dc8f38d6a4.png', 'Alimentos fonte de carboidratos', 'Drogasil', 'Os carboidratos costumam ser alvo de muitas dúvidas e controvérsias quando o assunto é alimentação saudável. Frequentemente rotulados como vilões das dietas, eles são, na verdade, a principal fonte de energia do nosso corpo. O cérebro e os músculos dependem dos carboidratos para funcionar adequadamente, especialmente durante atividades físicas e tarefas do dia a dia. O problema não está no consumo de carboidratos em si, mas na escolha das fontes e na quantidade ingerida.\r\n\r\nExistem diferentes tipos de carboidratos, e entender essa diferença é fundamental. Os carboidratos simples, presentes em açúcares refinados e alimentos ultraprocessados, são absorvidos rapidamente pelo organismo e podem causar picos de glicose no sangue. Já os carboidratos complexos, encontrados em alimentos integrais como arroz integral, aveia, legumes e verduras, são digeridos mais lentamente, proporcionando energia de forma gradual e maior sensação de saciedade.\r\n\r\nPriorizar versões integrais e naturais ajuda a manter um melhor controle glicêmico e contribui para a saúde metabólica. Além disso, esses alimentos são ricos em fibras, vitaminas e minerais, nutrientes importantes para o bom funcionamento do organismo. Excluir completamente os carboidratos da dieta pode levar à falta de energia, queda de rendimento físico e dificuldades de concentração.\r\n\r\nO equilíbrio é a chave para uma alimentação saudável. Em vez de eliminar os carboidratos, o ideal é aprender a escolhê-los com consciência e incluí-los de forma adequada nas refeições. Quando consumidos com qualidade e moderação, os carboidratos se tornam grandes aliados da saúde, fornecendo a energia necessária para manter o corpo ativo e o bem-estar ao longo do dia.', 'Jonas Espíndola', '2026-02-11'),
+(7, 'Gorduras Boas para a Saúde', 'Saiba quais gorduras são benéficas.', 'alimentacao', 'bem-estar', 'public/img/698dc87d8e479.png', 'Alimentos com diferentes tipos de gorduras', 'Patyayres', 'Durante muito tempo, as gorduras foram vistas como vilãs da alimentação, mas hoje sabemos que nem todas são prejudiciais. As chamadas gorduras boas desempenham um papel fundamental no funcionamento do organismo, contribuindo para a saúde do coração, do cérebro e do sistema hormonal. Incluir essas gorduras de forma equilibrada na dieta é essencial para manter uma alimentação saudável e nutritiva.\r\n\r\nAs gorduras insaturadas, presentes em alimentos como azeite de oliva, abacate, castanhas, sementes e peixes ricos em ômega-3, ajudam a controlar os níveis de colesterol no sangue e a reduzir inflamações no corpo. Esses nutrientes também auxiliam na absorção de vitaminas lipossolúveis, como as vitaminas A, D, E e K, que são importantes para diversas funções do organismo. Por isso, eliminar totalmente a gordura da alimentação não é recomendado.\r\n\r\nO segredo está em saber escolher as fontes certas e consumir com moderação. Substituir gorduras saturadas e trans — comuns em alimentos ultraprocessados e frituras — por opções naturais e ricas em gorduras boas é uma estratégia eficiente para proteger a saúde cardiovascular. Pequenas mudanças, como usar azeite no preparo das refeições ou incluir oleaginosas nos lanches, já fazem diferença no dia a dia.\r\n\r\nManter um equilíbrio entre os diferentes grupos alimentares é a chave para uma dieta sustentável a longo prazo. Ao compreender a importância das gorduras boas e incorporá-las de forma consciente, é possível melhorar a qualidade da alimentação sem abrir mão do sabor. Escolhas informadas contribuem para mais energia, bem-estar e qualidade de vida.', 'Cristiano Matos Cardoso', '2026-02-13'),
+(8, 'Planejamento Alimentar Sem Complicação', 'Como organizar as refeições da semana.', 'planejamento', 'dicas', 'public/img/698dc7d865fcf.png', 'Alimentos sendo pesados em uma balança', 'Estadão', 'Planejar a alimentação da semana pode parecer uma tarefa trabalhosa à primeira vista, mas na prática é uma estratégia simples que traz inúmeros benefícios para a saúde e para a rotina. O planejamento alimentar ajuda a organizar melhor as refeições, evita escolhas impulsivas e facilita a adoção de hábitos mais saudáveis. Quando sabemos com antecedência o que vamos comer, reduzimos o consumo de alimentos ultraprocessados e passamos a priorizar refeições equilibradas e nutritivas.\r\n\r\nO primeiro passo para um bom planejamento é definir um cardápio semanal realista, considerando a rotina e o tempo disponível para cozinhar. Não é necessário elaborar pratos complexos todos os dias; o ideal é apostar em preparações simples, variadas e que possam ser reaproveitadas em diferentes refeições. Fazer uma lista de compras com base nesse cardápio também é fundamental, pois evita desperdícios e ajuda a economizar dinheiro.\r\n\r\nOutra dica importante é reservar um momento da semana para preparar alguns alimentos com antecedência, como legumes higienizados, grãos cozidos ou proteínas já temperadas. Esse preparo prévio torna o dia a dia mais prático e reduz a tentação de recorrer a opções menos saudáveis por falta de tempo. Além disso, manter lanches nutritivos sempre à disposição contribui para controlar a fome entre as refeições.\r\n\r\nO planejamento alimentar não precisa ser rígido, mas sim flexível e adaptável. O objetivo é criar uma rotina que favoreça escolhas conscientes e sustentáveis a longo prazo. Com organização e constância, é possível transformar o momento das refeições em uma experiência mais tranquila, prazerosa e alinhada com o cuidado com a saúde. Pequenas mudanças na forma de se organizar podem gerar grandes resultados para o bem-estar e a qualidade de vida.', 'Vanessa Soares', '2026-02-19'),
+(9, 'Como Ler Rótulos de Alimentos', 'Guia para interpretar rótulos nutricionais.', 'educacao', 'dicas', 'public/img/698dc67c3b0e8.png', 'Pessoa lendo rótulo nutricional', 'Proximadx', 'Ler rótulos de alimentos é uma prática essencial para quem busca uma alimentação mais saudável e consciente. Em um mercado repleto de produtos industrializados, embalagens chamativas e promessas de benefícios rápidos, o rótulo se torna a principal fonte de informação confiável para o consumidor. Saber interpretá-lo permite entender exatamente o que está sendo consumido, indo além do marketing e focando na composição real do alimento. Esse hábito simples pode ajudar a prevenir doenças, controlar a ingestão de nutrientes e promover escolhas mais equilibradas no dia a dia.\r\n\r\nA lista de ingredientes é um dos elementos mais importantes do rótulo. Ela apresenta os componentes do alimento em ordem decrescente de quantidade, ou seja, os primeiros itens são os que aparecem em maior proporção. Ao analisar essa lista, é possível identificar a presença de açúcares adicionados, conservantes, corantes e gorduras em excesso. Muitas vezes, o açúcar aparece com diferentes nomes, como glicose, frutose, maltodextrina ou xarope de milho, o que pode confundir o consumidor. Reconhecer esses termos ajuda a evitar o consumo exagerado de substâncias que, em excesso, podem prejudicar a saúde.\r\n\r\nOutro ponto fundamental é a tabela nutricional, que apresenta informações sobre calorias, carboidratos, proteínas, gorduras totais, gorduras saturadas, fibras e sódio. Esses dados permitem comparar produtos semelhantes e escolher opções mais saudáveis. É importante também observar o tamanho da porção indicada, pois todos os valores nutricionais se referem a essa medida específica. Muitas embalagens contêm mais de uma porção, e consumir o pacote inteiro pode significar ingerir o dobro ou o triplo dos valores apresentados.\r\n\r\nAlém disso, os rótulos trazem informações complementares, como a presença de alergênicos, validade do produto e orientações de armazenamento. Para pessoas com restrições alimentares ou alergias, essas informações são indispensáveis. Selos e certificações também podem indicar características específicas, como alimentos integrais, orgânicos ou com baixo teor de sódio. No entanto, é sempre importante confirmar essas alegações verificando a composição nutricional.\r\n\r\nCriar o hábito de ler rótulos é um passo importante para desenvolver uma relação mais consciente com a alimentação. Com o tempo, a leitura se torna mais rápida e natural, facilitando decisões no momento da compra. Pequenas escolhas feitas de forma informada podem trazer grandes benefícios a longo prazo, contribuindo para a prevenção de doenças e para a manutenção de uma vida mais saudável. Ao entender melhor o que está no prato, o consumidor assume um papel ativo no cuidado com o próprio bem-estar.', 'Débora Ribeiro Nunes', '2026-02-22'),
+(10, 'A Relação Entre Alimentação e Energia', 'Entenda como a dieta pode influenciar em sua disposição.', 'curiosidades', 'bem-estar', 'public/img/6986999d8181e.jpg', 'Diferentes alimentos compondo uma bicicleta.', 'Clínicas Persona', 'A alimentação é muito mais do que uma necessidade básica; ela é o combustível que move nosso corpo e influencia diretamente nossos níveis de energia ao longo do dia. O que escolhemos colocar no prato determina como nos sentimos, nosso desempenho em tarefas diárias e até mesmo nosso estado de humor. Quando nos alimentamos de forma equilibrada, conseguimos manter a disposição e enfrentar as atividades do dia a dia com mais vitalidade e foco.\r\n\r\nOs carboidratos desempenham um papel central nesse processo, pois se transformam em glicose, que é a principal fonte de energia para nossas células, especialmente para o cérebro e os músculos. Frutas, cereais integrais, legumes e tubérculos fornecem essa energia de forma gradual, evitando quedas bruscas de disposição. Já as proteínas, presentes em alimentos como ovos, carnes magras, leguminosas e laticínios, ajudam não apenas na construção e reparo dos tecidos, mas também podem servir como fonte de energia quando necessário. As gorduras, por sua vez, fornecem energia de forma mais lenta e duradoura, além de desempenharem funções essenciais, como a absorção de vitaminas e a produção de hormônios. Alimentos como abacate, azeite, castanhas e peixes gordurosos são exemplos de fontes saudáveis de gordura que ajudam a manter a energia estável.\r\n\r\nA maneira como organizamos as refeições ao longo do dia também influencia diretamente nossa disposição. Um café da manhã nutritivo ajuda a iniciar o dia com mais energia, enquanto lanches estratégicos entre as refeições mantêm os níveis de glicose equilibrados, evitando aquela sensação de cansaço no meio da manhã ou da tarde. Por outro lado, o consumo excessivo de alimentos ultraprocessados e ricos em açúcar refinado pode fornecer energia rápida, mas seguida de uma queda brusca, deixando-nos cansados, irritados e menos concentrados.\r\n\r\nAlém dos alimentos, a hidratação é um fator muitas vezes negligenciado, mas igualmente importante. A água é essencial para que o corpo funcione corretamente, e mesmo uma leve desidratação pode causar fadiga, dificuldade de concentração e sensação de fraqueza. Por isso, manter-se hidratado ao longo do dia é fundamental para garantir que a energia fornecida pelos alimentos seja realmente aproveitada pelo corpo.\r\n\r\nEm resumo, energia e alimentação estão profundamente conectadas. Escolher alimentos nutritivos, equilibrar carboidratos, proteínas e gorduras, organizar bem as refeições e manter-se hidratado são passos essenciais para garantir disposição, saúde e bem-estar. Quando entendemos essa relação, percebemos que a energia não vem apenas do descanso ou da vontade de se movimentar, mas começa no que colocamos no prato, moldando nosso dia e nossa qualidade de vida.', 'Carlos Miguel Oliveira', '2026-02-25');
 
 -- --------------------------------------------------------
--- Tabela users
--- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `users`;
+--
+-- Estrutura para tabela `users`
+--
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `isAdmin` tinyint(1) DEFAULT 0,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `isAdmin` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `users`
-(`id`, `name`, `email`, `password`, `cpf`, `phone`, `isAdmin`)
-VALUES
+--
+-- Despejando dados para a tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `cpf`, `phone`, `isAdmin`) VALUES
 (1, 'Admin', 'admin@example.com', 'password', '123.123.123-12', '(21) 34413-1676', 1),
 (2, 'José Pereira Santos', 'jose@example.com', 'password', '457.584.326-87', '(45) 43575-6853', 0),
 (3, 'Débora Ribeiro Nunes', 'deb@example.com', 'password', '926.730.956-44', '(12) 53563-4673', 0),
@@ -183,4 +89,39 @@ VALUES
 (9, 'Cristiano Matos Cardoso', 'cr7@example.com', 'password', '340.564.705-46', '(61) 45236-3265', 0),
 (10, 'Camila Peixoto', 'camila@example.com', 'password', '372.794.280-93', '(34) 68634-6873', 0);
 
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
