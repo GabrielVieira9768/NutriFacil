@@ -20,7 +20,7 @@
 <body>
     <?php require('app/views/components/sidebar.php'); ?>
 
-    <div class="d-flex justify-content-center mb-5 mt-2">
+    <div class="titulo-principal d-flex justify-content-center mb-5 mt-2">
         <header>
             <h2 class="titulo-dash">Área Administrativa</h2>
         </header>
@@ -58,13 +58,23 @@
             </div>
         </div>
     </div>
-    <div class="mb-5">
-        <div class="d-flex justify-content-center mb-3">
-            <h2 class="titulo-posts">
+    <div class="posts-title">
+        <div class="titulo-posts d-flex justify-content-center">
+            <h2>
+                Informações Gerais
+            </h2>
+        </div>
+        <div class="info-body d-flex justify-content-center flex-wrap">
+
+        </div>
+    </div>
+    <div class="posts-title">
+        <div class="titulo-posts d-flex justify-content-center">
+            <h2>
                 Últimos Posts
             </h2>
         </div>
-        <div class="d-flex justify-content-center flex-wrap">
+        <div class="posts-body d-flex justify-content-center flex-wrap">
             <?php foreach (array_slice($posts, 0, 4) as $post) : ?>
                 <div class="card mx-2" style="width: 18rem;">
                     <img src="/<?= $post->image; ?>" class="card-img-top fixed-height-image" alt="Imagem do post">

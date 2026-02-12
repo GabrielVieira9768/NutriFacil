@@ -9,10 +9,28 @@ body {
     color: #333e50;
 }
 
+.posts-title {
+    background-color: #fff;
+}
+
 .titulo-posts {
-    font-size: 32px;
     font-weight: 600;
-    color: #333e50;
+    color: #fff;
+    background-color: #333e50;
+    padding: 20px;
+}
+
+.titulo-posts h2 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.info-body {
+    background-color: #f1debd;
+}
+
+.posts-body {
+    padding: 32px 0 32px 0;
 }
 
 .card-body {

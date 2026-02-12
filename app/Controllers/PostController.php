@@ -67,7 +67,6 @@ class PostController
         return view('site/galeria', compact('posts', 'page', 'total_pages', 'pagination'));
     }
 
-    // ✅ Agora recebe o ID pela URL
     public function indexUnique($id)
     {
         $postInd = (object) App::get('database')->find('posts', $id);
